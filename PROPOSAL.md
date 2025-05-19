@@ -31,7 +31,7 @@ Link(s):
        
 3 Candy Crush 
 Description: 
-       A clone of block blast. 
+       A clone of Candy Crush. 
        
 Scope:
        Checks for how many tiles are the same, move limit, scoring, simple powerups and a simple square grid. No complex level designs.
