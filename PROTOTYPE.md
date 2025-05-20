@@ -37,8 +37,11 @@ UML Diagram:
 |y : int            |
 |turn : boolean     |
 |canMove() : boolean|
-|--|
-|Pawn ; Rook ; Knight ; Bishop ; Queen : King |
+
+### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 
+&nbsp;
+|Pawn | Rook | Knight | Bishop | Queen | King |
+|--|--|--|--|--|--|
 
 
     
