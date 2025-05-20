@@ -11,7 +11,7 @@ make, using knowledge from labs such as N-Queens to understand possible moves an
 
 PERIOD 3  
 Maddie Chin and Robinson Zhang  
-Group Name  
+A Rooky Mistake
 Brief Project description: Chess played according to the standardized rules on an 
 8x8 board. Two players will take turns moving one of their pieces (king, queen, rook, 
 bishop, knight, or pawn) to an appropriate spot. The game will include correct 
