@@ -20,8 +20,9 @@ move two spaces on its first move or castling). The game will end when some play
 checkmates the other’s king with no possible way to escape. If possible during the time 
 frame, we would also like to implement the additional features to make the regular chess 
 into boom chess, including the ability to skip a turn to blow up a random square on the 
-board.
-&nbsp;
+board.  
+
+
 UML Diagram:  
 |Game                 |	
 |--|
@@ -41,8 +42,9 @@ UML Diagram:
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 
 &nbsp;
 |Pawn | Rook | Knight | Bishop | Queen | King |
-|--|--|--|--|--|--|
-&nbsp;
+|--|--|--|--|--|--|  
+
+
 Outline:
 1. Game
 	- initiates board
