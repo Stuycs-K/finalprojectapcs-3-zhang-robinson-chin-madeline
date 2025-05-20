@@ -24,15 +24,21 @@ board.
 
 
 UML Diagram:  
-|Game                 |							|Piece              |
-|:--------------------|							|:------------------|
-|board : int[][]      |							|x : int			|
-|start()              |							|y : int            |
-|move(row, col)       |							|turn : boolean     |
-|checkmate() : boolean|							|canMove() : boolean|
-															|
-							-------------------------------------------------------------
-							|Pawn |  |Rook  |  |Knight  |  |Bishop  |   |Queen |  |King |
+|Game                 |	
+|--|
+|board : int[][] |
+|start() |
+|move(row,col) |
+|checkmate() : boolean |					
+
+|Piece              |
+|----------|		
+|x : int			|
+|y : int            |
+|turn : boolean     |
+|canMove() : boolean|
+|--|
+|Pawn ; Rook ; Knight ; Bishop ; Queen : King |
 
 
     
