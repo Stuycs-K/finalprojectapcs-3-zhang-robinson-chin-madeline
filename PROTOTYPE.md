@@ -21,8 +21,7 @@ checkmates the other’s king with no possible way to escape. If possible during
 frame, we would also like to implement the additional features to make the regular chess 
 into boom chess, including the ability to skip a turn to blow up a random square on the 
 board.
-
-
+&nbsp;
 UML Diagram:  
 |Game                 |	
 |--|
@@ -43,12 +42,12 @@ UML Diagram:
 &nbsp;
 |Pawn | Rook | Knight | Bishop | Queen | King |
 |--|--|--|--|--|--|
-
+&nbsp;
 Outline:
 1. Game
 	- initiates board
 	- starts game with one player's turn
-	- allowes the player to move one piece (according to the type) to a valid space before switching turns
+	- allows the player to move one piece (according to the type) to a valid space before switching turns
 	- moves continue according to whose turn it is
 	- checks if the game has reached a checkmate and determines a winner
 2. Piece (abstract)
