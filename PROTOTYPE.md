@@ -29,13 +29,13 @@ UML Diagram:
 |board : int[][] |
 |start() |
 |move(row,col) |
-|checkmate() : boolean |					
+|checkmate() : boolean |	
+|turn : boolean|				
 
 |Piece              |
 |----------|		
 |x : int			|
 |y : int            |
-|turn : boolean     |
 |isPiece() : boolean|
 |canMove() : boolean|
 
@@ -48,12 +48,12 @@ Outline:
 1. Game
 	- initiates board
 	- starts game with one player's turn
-	- allowed them to move one piece (according to the type)
+	- allowes the player to move one piece (according to the type) to a valid space before switching turns
+	- moves continue according to whose turn it is
 	- checks if the game has reached a checkmate and determines a winner
 2. Piece (abstract)
 	- basis for all pieces
 	- includes row and col according to location on the board
-	- checks for which player's turn
 	- checks for preexisting piece in a certain square/coordinates
 	- checks if player is allowed to move to a certain square/place on the board (will replace preexisting piece)
 3. Pawn
