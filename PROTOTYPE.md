@@ -36,6 +36,7 @@ UML Diagram:
 |x : int			|
 |y : int            |
 |turn : boolean     |
+|isPiece() : boolean|
 |canMove() : boolean|
 
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 
@@ -43,7 +44,33 @@ UML Diagram:
 |Pawn | Rook | Knight | Bishop | Queen | King |
 |--|--|--|--|--|--|
 
-
+Outline:
+1. Game
+	- initiates board
+	- starts game with one player's turn
+	- allowed them to move one piece (according to the type)
+	- checks if the game has reached a checkmate and determines a winner
+2. Piece (abstract)
+	- basis for all pieces
+	- includes row and col according to location on the board
+	- checks for which player's turn
+	- checks for preexisting piece in a certain square/coordinates
+	- checks if player is allowed to move to a certain square/place on the board (will replace preexisting piece)
+3. Pawn
+	- piece can move one space forward at a time
+	- if a piece is located in a forward diagonal, it may capture and move there; otherwise, it may not move diagonally
+	- change to Queen piece when reaching he other end of the board is handled as an edge case in Game 
+4. Rook
+	- can move down rows or columns
+	- castling handled in Game
+5. Knight
+	- can move in L shapes (two spaces one direction and one in a perpendicular direction to the first)
+6. Bishop 
+	- can move diagonally on the board
+7. Queen 
+	- can move in all directions
+8. King 
+	- can move in all directions, but only one space at a time
     
 # Intended pacing:
 
