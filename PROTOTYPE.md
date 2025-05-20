@@ -23,7 +23,16 @@ into boom chess, including the ability to skip a turn to blow up a random square
 board.
 
 
-UML Diagrams and descriptions of key algorithms, classes, and how things fit together.
+UML Diagram:  
+|Game                 |							|Piece              |
+|:--------------------|							|:------------------|
+|board : int[][]      |							|x : int			|
+|start()              |							|y : int            |
+|move(row, col)       |							|turn : boolean     |
+|checkmate() : boolean|							|canMove() : boolean|
+															|
+							-------------------------------------------------------------
+							|Pawn |  |Rook  |  |Knight  |  |Bishop  |   |Queen |  |King |
 
 
     
