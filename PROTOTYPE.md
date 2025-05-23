@@ -129,7 +129,7 @@ Phase 1: Setup and planning (May 21)
   - Assign roles and responsibilities
   - Set up Github Repo and Branches
 
-Phase 2: Core game framework (May 30)
+Phase 2: Core game framework (May 28)
   - Initialize 8 by 8 board with all pieces
   - Turn tracking implmentation
   - Code Piece abstract class
@@ -141,14 +141,14 @@ Phase 2: Core game framework (May 30)
     	- Queen: 8 direction movement
     	- King: 1 step all directions     
     
-Phase 3: Rules and edge cases (June 2)
+Phase 3: Rules and edge cases (May 30)
   - Castling
   - En passent
   - Pawn Promotion
   - King can't move into check and has to be saved from check
   - Check detection and checkmate detection
     
-Phase 4: Testing and Polishing (June 3-4)
+Phase 4: Testing and Polishing (June 1)
   - Play through the game to catch bugs
   - Test:
       - Legal and illegal moves
