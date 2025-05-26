@@ -77,7 +77,85 @@ Outline:
 	- can move in all directions, but only one space at a time
 
 # Intended pacing:
-
 How you are breaking down the project and who is responsible for which parts.
 
-A timeline with expected completion dates of parts of the project. (CHANGE THIS!!!!!)
+Robinson: 
+1. Board Setup
+   - Setup a 8 by 8 board as a 2D array
+   - Place all pieces in starting positions
+   - Work on abstract Piece class
+
+2. Pawn
+   - One space forward
+   - Two spaces on first move
+   - Diagonal capture
+   - Enpassant
+   - Pawn Promotion
+     
+3. Knight
+   - L shaped movement and capture
+   - Can jump over pieces
+     
+4. Bishop
+   - Diagonal Movement and capture
+
+Maddie:
+1. Logic
+   - Work on check and checkmate logic
+   - Check for legal and illegal moves
+   - Castling 
+     
+2. Rook
+   - Horizontal and vertical movement and capture
+
+3. Queen
+   - Combination of Rook and Bishop movement and capture
+
+4. King
+   - One square in any direction and capture
+   - Can't put themselves in check/checkmate
+
+Shared: 
+   - Play though the game
+       - Legal and illegal moves
+       - Capturing
+       - Turn swithcing
+  - Debug
+  - Clean up redudant code
+  - Add comments throughout the coding process
+  - Prepare demo and walkthrough for presentation
+
+A timeline with expected completion dates of parts of the project:
+
+Phase 1: Setup and planning (May 21)
+  - Finalize decision on which game to code
+  - Assign roles and responsibilities
+  - Set up Github Repo and Branches
+
+Phase 2: Core game framework (May 28)
+  - Initialize 8 by 8 board with all pieces
+  - Turn tracking implmentation
+  - Code Piece abstract class
+  - Moves for all pieces:
+    	- Pawn: single/double movement and diagonal capture
+    	- Knight: L shaped movment and capture, jumping over pieces
+    	- Bishop: Diagonal movement and capture
+    	- Rook: Vertical and horizontal movement and capture
+    	- Queen: 8 direction movement
+    	- King: 1 step all directions     
+    
+Phase 3: Rules and edge cases (May 30)
+  - Castling
+  - En passent
+  - Pawn Promotion
+  - King can't move into check and has to be saved from check
+  - Check detection and checkmate detection
+    
+Phase 4: Testing and Polishing (June 1)
+  - Play through the game to catch bugs
+  - Test:
+      - Legal and illegal moves
+      - Check/checkmate logic
+      - Switching and capturing
+      - Any UI tweaks
+  - Prepare demo and presentation 
