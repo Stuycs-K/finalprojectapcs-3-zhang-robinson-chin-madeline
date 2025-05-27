@@ -24,25 +24,7 @@ board.
 
 
 UML Diagram:  
-|Game                 |
-|--|
-|board : int[][] |
-|start() |
-|move(row,col) |
-|checkmate() : boolean |
-|turn : boolean|				
-
-|Piece              |
-|----------|		
-|x : int			|
-|y : int            |
-|isPiece() : boolean|
-|canMove() : boolean|
-
-### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
-&nbsp;
-|Pawn | Rook | Knight | Bishop | Queen | King |
-|--|--|--|--|--|--|  
+![UML Diagram](https://lucid.app/publicSegments/view/e63b292b-ff1f-427b-a795-b20ecca3c4a9/image.png)  
 
 
 Outline:
@@ -58,8 +40,8 @@ Outline:
 	- checks for preexisting piece in a certain square/coordinates
 	- creates an array of allowed moves for a piece, so it can be looped
   through to check for move allowability
-  - allows a preexisting piece to be replaced
-	~~- checks if player is allowed to move to a certain square/place on the board (will replace preexisting piece)~~
+  - allows a preexisting piece to be replaced  
+  - ~~checks if player is allowed to move to a certain square/place on the board (will replace preexisting piece)~~
 3. Pawn
 	- piece can move one space forward at a time
 	- if a piece is located in a forward diagonal, it may capture and move there; otherwise, it may not move diagonally
@@ -77,7 +59,6 @@ Outline:
 	- can move in all directions, but only one space at a time
 
 # Intended pacing:
-How you are breaking down the project and who is responsible for which parts.
 
 Robinson: 
 1. Board Setup
