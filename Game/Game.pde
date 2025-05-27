@@ -1,3 +1,4 @@
+class Game{
 int[][] board;
 ArrayList<String> history;
 boolean turn;
@@ -17,5 +18,6 @@ void grid() {
   }
 }
 void draw() {
-  grid();
+  grid(); 
+  }
 }
