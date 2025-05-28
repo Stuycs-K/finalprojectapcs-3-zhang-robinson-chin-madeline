@@ -50,3 +50,9 @@ void grid() {
 void draw() {
   grid(); 
   }
+  
+void castling() {
+  //check king and rook have 0 moves in history 
+  //castle 
+  //might move to diff class 
+}
