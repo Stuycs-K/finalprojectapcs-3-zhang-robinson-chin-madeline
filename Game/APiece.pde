@@ -18,10 +18,10 @@ static boolean checkSq(int[][] board, int r, int c) {
   }
 }
 
-abstract String[] allowedMoves(Piece[][] board);
+abstract ArrayList<String> allowedMoves(Piece[][] board);
 
 void move(chessPiece[][] board, int r, int c) {
-  String[] moves = this.allowedMoves(board);
+  ArrayList<String> moves = this.allowedMoves(board);
   for (int y = 0; y < moves.length; y++) {
     if ((""+this.row+this.col).equals(moves[y])) {
       board[r][c] = this;
