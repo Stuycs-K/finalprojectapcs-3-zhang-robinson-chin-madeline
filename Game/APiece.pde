@@ -6,7 +6,7 @@ boolean white;
 Piece(int r, int c, boolean white) {
   this.row=r;
   this.col=c;
-  this.whit = white;
+  this.white = white;
 }
 
 static boolean checkSq(int[][] board, int r, int c) {
@@ -23,7 +23,12 @@ abstract ArrayList<String> allowedMoves(Piece[][] board);
 void move(chessPiece[][] board, int r, int c) {
   ArrayList<String> moves = this.allowedMoves(board);
   for (int y = 0; y < moves.length; y++) {
+    if ((this instanceof King || this instanceof Rook) && (""+this.row+this.col).equals(moves[y]) 
+    && this.castle) {
+      board 
+    }
     if ((""+this.row+this.col).equals(moves[y])) {
+      this.history.add(""+this.row+this.col+" to " +r+c);
       board[r][c] = this;
       board[this.row][this.col] = null;
       row = r;
