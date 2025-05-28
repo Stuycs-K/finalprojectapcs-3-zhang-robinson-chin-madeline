@@ -22,3 +22,11 @@ it to the repo later on.
 Talked with Mr. K about how our project will realistically function 
 and made edits to the outline and methods. When I got home, I remade 
 the UML diagram (on a proper website) with the changes in methodology. 
+
+### 2025-05-27 - Began work on the classes/basics.
+In class, Robinson added all the individual classes/subclasses and 
+I started on the general setup of Game (like the checkered board and the 2D
+array for the pieces). When I got home, I instated the abstract Piece class
+with the basic methods and worked on the allowedMoves for Rook, Queen, and 
+King (took around 2 hours, including the time it took to work out how I wanted the classes
+to connect with one another other so they would work properly).  
