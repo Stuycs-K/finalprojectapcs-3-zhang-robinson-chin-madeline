@@ -30,3 +30,9 @@ array for the pieces). When I got home, I instated the abstract Piece class
 with the basic methods and worked on the allowedMoves for Rook, Queen, and 
 King (took around 2 hours, including the time it took to work out how I wanted the classes
 to connect with one another other so they would work properly).  
+
+### 2025-05-28 - Began work on castling.
+Robinson and I agrued over the division of work and how to split the classes 
+in class today. When I got home, I stuggled on castling for like two hours 
+before I got something that might work.  
+
