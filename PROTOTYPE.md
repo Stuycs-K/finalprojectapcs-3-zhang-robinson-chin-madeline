@@ -34,21 +34,23 @@ Outline:
 	- allows the player to move one piece (according to the type) to a valid space before switching turns
 	- moves continue according to whose turn it is
 	- checks if the game has reached a checkmate and determines a winner
-2. Piece (abstract)
+2. APiece (abstract)
 	- basis for all pieces
 	- includes row and col according to location on the board
 	- checks for preexisting piece in a certain square/coordinates
 	- creates an array of allowed moves for a piece, so it can be looped
   through to check for move allowability
 	- allows a preexisting piece to be replaced  
-	- ~~checks if player is allowed to move to a certain square/place on the board (will replace preexisting piece)~~
+	- ~~checks if player is allowed to move to a certain square/place on the board (will replace preexisting piece)~~ (removed for changed
+	methodology and clarity purposes)
+	- handles edge cases like castling
 3. Pawn
 	- piece can move one space forward at a time
 	- if a piece is located in a forward diagonal, it may capture and move there; otherwise, it may not move diagonally
 	- change to Queen piece when reaching he other end of the board is handled as an edge case in Game
 4. Rook
 	- can move down rows or columns
-	- castling handled in Game
+	- castling handled ~~in Game~~ (castling now handled in Rook, King, and APiece)
 5. Knight
 	- can move in L shapes (two spaces one direction and one in a perpendicular direction to the first)
 6. Bishop
@@ -57,10 +59,11 @@ Outline:
 	- can move in all directions
 8. King
 	- can move in all directions, but only one space at a time
+	- castling handled ~~in Game~~ (castling now handled in Rook, King, and APiece)
 
 # Intended pacing:
 
-Robinson: 
+Robinson:
 1. Board Setup
    - Setup a 8 by 8 board as a 2D array
    - Place all pieces in starting positions
@@ -70,13 +73,13 @@ Robinson:
    - One space forward
    - Two spaces on first move
    - Diagonal capture
-   - Enpassant
+   - En passant
    - Pawn Promotion
-     
+
 3. Knight
    - L shaped movement and capture
    - Can jump over pieces
-     
+
 4. Bishop
    - Diagonal Movement and capture
 
@@ -84,8 +87,8 @@ Maddie:
 1. Logic
    - Work on check and checkmate logic
    - Check for legal and illegal moves
-   - Castling 
-     
+   - Castling
+
 2. Rook
    - Horizontal and vertical movement and capture
 
@@ -96,15 +99,15 @@ Maddie:
    - One square in any direction and capture
    - Can't put themselves in check/checkmate
 
-Shared: 
+Shared:
    - Play though the game
        - Legal and illegal moves
        - Capturing
-       - Turn swithcing
+       - Turn switching
   - Debug
-  - Clean up redudant code
+  - Clean up redundant code
   - Add comments throughout the coding process
-  - Prepare demo and walkthrough for presentation
+  - Prepare demo and walk-through for presentation
 
 A timeline with expected completion dates of parts of the project:
 
@@ -115,23 +118,23 @@ Phase 1: Setup and planning (May 21)
 
 Phase 2: Core game framework (May 28)
   - Initialize 8 by 8 board with all pieces
-  - Turn tracking implmentation
+  - Turn tracking implementation
   - Code Piece abstract class
   - Moves for all pieces:
     	- Pawn: single/double movement and diagonal capture
-    	- Knight: L shaped movment and capture, jumping over pieces
+    	- Knight: L shaped movement and capture, jumping over pieces
     	- Bishop: Diagonal movement and capture
     	- Rook: Vertical and horizontal movement and capture
     	- Queen: 8 direction movement
     	- King: 1 step all directions     
-    
+
 Phase 3: Rules and edge cases (May 30)
   - Castling
-  - En passent
+  - En passant
   - Pawn Promotion
   - King can't move into check and has to be saved from check
   - Check detection and checkmate detection
-    
+
 Phase 4: Testing and Polishing (June 1)
   - Play through the game to catch bugs
   - Test:
@@ -139,4 +142,4 @@ Phase 4: Testing and Polishing (June 1)
       - Check/checkmate logic
       - Switching and capturing
       - Any UI tweaks
-  - Prepare demo and presentation 
+  - Prepare demo and presentation
