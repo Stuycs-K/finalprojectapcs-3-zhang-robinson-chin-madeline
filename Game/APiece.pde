@@ -20,12 +20,23 @@ static boolean checkSq(int[][] board, int r, int c) {
 
 abstract ArrayList<String> allowedMoves(Piece[][] board);
 
+boolean wantC(chessPiece[][] board, int r, int c) {
+  Piece save = board[r][c];
+  if (save instanceof King && this instance of Rook && this.white == save.white && 
+  this.castle) {
+    return true;
+  }
+  else if (save instanceof Rook && this instance of King && this.white == save.white && 
+  this.castle) {
+    return true;
+  }
+  return false;
+}
+
 void move(chessPiece[][] board, int r, int c) {
   ArrayList<String> moves = this.allowedMoves(board);
-  for (int y = 0; y < moves.length; y++) {
-    if ((this instanceof King || this instanceof Rook) && (""+this.row+this.col).equals(moves[y]) 
-    && this.castle) {
-      board 
+    if (this.wantC(board,r,c)) {
+      
     }
     if ((""+this.row+this.col).equals(moves[y])) {
       this.history.add(""+this.row+this.col+" to " +r+c);

@@ -47,7 +47,13 @@ void grid() {
     }
   }
 }
-void draw() {
+
+void putP() {
+  for (int y = 0; y < board.length; y++) {
+  }
+}
+
+void display() {
   grid(); 
   }
   
