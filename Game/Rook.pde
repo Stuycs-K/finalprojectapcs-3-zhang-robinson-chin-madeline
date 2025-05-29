@@ -3,7 +3,7 @@ class Rook extends chessPiece{
     super(r,c,white);
   }
   ArrayList<String> allowedMoves(Piece[][] board) {
-    ArrayList<String> moes = new ArrayList<>();
+    ArrayList<String> moves = new ArrayList<>();
     for (int y = this.row - 1; y >= 0; y--) {
       if (board[y][this.col] == null) {
         moves.add(""+y+this.col);
