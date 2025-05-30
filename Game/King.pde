@@ -4,6 +4,11 @@ class King extends chessPiece{
     super(r,c,white);
     //castle = false;
   }
+
+  
+  String getPiece(){
+    return "King"; 
+  } 
   ArrayList<String> allowedMoves(chessPiece[][] board) {
     ArrayList<String> moves = new ArrayList<>();
       if (board[this.row-1][this.col] == null) {

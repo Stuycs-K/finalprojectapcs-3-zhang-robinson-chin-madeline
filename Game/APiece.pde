@@ -9,6 +9,9 @@ public chessPiece(int r, int c, boolean white) {
   this.white = white;
 }
 
+
+abstract String getPiece();
+
 boolean checkSq(int[][] board, int r, int c) {
   if (board[r][c] == null) {
     return true;
@@ -59,3 +62,8 @@ void move(chessPiece[][] board, int r, int c) {
 
 //I like dont think we need capture??
   
+<<<<<<< HEAD
+=======
+
+}
+>>>>>>> f143de213040039693df0976e43356ebca907262

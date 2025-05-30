@@ -5,6 +5,10 @@ class Pawn extends chessPiece{
    super(r,c,white);
   }
   
+  String getPiece(){
+    return "Pawn"; 
+  } 
+  
   ArrayList<String> allowedMoves(chessPiece[][] board){
     ArrayList<String> moves = new ArrayList<>();
     int dir;
