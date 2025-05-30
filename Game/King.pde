@@ -1,9 +1,10 @@
 class King extends chessPiece{
   boolean castle;
-  King(int r, int c, boolean white) {
+  public King(int r, int c, boolean white) {
     super(r,c,white);
+    //castle = false;
   }
-  ArrayList<String> allowedMoves(Piece[][] board) {
+  ArrayList<String> allowedMoves(chessPiece[][] board) {
     ArrayList<String> moves = new ArrayList<>();
       if (board[this.row-1][this.col] == null) {
         moves.add(""+(this.row-1)+this.col);
@@ -65,27 +66,27 @@ class King extends chessPiece{
         boolean king1 = true;
         boolean king2 = true; 
         boolean king3 = true;
-  for (int z = 0; z < history.length; z++) {
+  for (int z = 0; z < history.size(); z++) {
     if (this.white){
-      if (history[z].contains("74")) {
+      if (history.get(z).contains("74")) {
         king3 = false;
       }
-        if(history[z].contains("70")){
+        if(history.get(z).contains("70")){
       king1 = false;
     }
-    if(history[z].contains("77")){
+    if(history.get(z).contains("77")){
       king2 = false;
     }
     
     }
     else {
-      if (history[z].contains("04")) {
+      if (history.get(z).contains("04")) {
         king3= false;
       }
-        if(history[z].contains("00")){
+        if(history.get(z).contains("00")){
       king1 = false;
     }
-    if(history[z].contains("07")){
+    if(history.get(z).contains("07")){
       king2 = false;
     }
     }
@@ -148,15 +149,15 @@ class King extends chessPiece{
      for (String move : moves) {
      int row1 = Integer.parseInt(move.substring(0, 1));
      int col1 = Integer.parseInt(move.substring(1, 2));
-     Piece opp = board[row1][col1]; 
+     chessPiece opp = board[row1][col1]; 
      int holdr= this.row;
-     int holc = this.col;
+     int holdc = this.col;
      
      board[row1][col1] = this;
      board[holdr][holdc] = null;
      this.row=row1;
      this.col=col1;
-     if (!check(board,row1,col1,this.white)) {
+     if (!checked(board,row1,col1)) {
        moves1.add(move);
      }
      board[row1][col1] = opp; 
@@ -167,10 +168,10 @@ class King extends chessPiece{
      return moves1;
   }
   
-  boolean checked(Piece[][] board, int r, int c, boolean white) {
+  boolean checked(chessPiece[][] board, int r, int c) {
     for (int y = 0; y < 8; y++) {
       for (int z = 0; z < 8; z++) {
-        Piece emmy= board[y][z];
+        chessPiece emmy= board[y][z];
         if (emmy != null && emmy.white != this.white) {
           ArrayList<String> movess = emmy.allowedMoves(board);
           if (movess.contains(""+r+c)) {

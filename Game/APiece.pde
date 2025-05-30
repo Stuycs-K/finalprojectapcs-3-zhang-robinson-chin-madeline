@@ -3,13 +3,13 @@ int row;
 int col;
 boolean white;
 
-Piece(int r, int c, boolean white) {
+public chessPiece(int r, int c, boolean white) {
   this.row=r;
   this.col=c;
   this.white = white;
 }
 
-static boolean checkSq(int[][] board, int r, int c) {
+boolean checkSq(int[][] board, int r, int c) {
   if (board[r][c] == null) {
     return true;
   }
@@ -18,16 +18,16 @@ static boolean checkSq(int[][] board, int r, int c) {
   }
 }
 
-abstract ArrayList<String> allowedMoves(Piece[][] board);
+abstract ArrayList<String> allowedMoves(chessPiece[][] board);
 
 
 void move(chessPiece[][] board, int r, int c) {
   ArrayList<String> moves = this.allowedMoves(board);
-      Piece hold = board[r][c];
+      chessPiece hold = board[r][c];
     if (this instanceof King && hold instanceof Rook && this.white == hold.white && 
   this.castle) {
       if (this.col == 0 || c == 0) {
-        this.history.add(""+this.row+this.col+" castles " +r+c);
+        history.add(""+this.row+this.col+" castles " +r+c);
       board[r][c+1] = this;
       board[this.row][this.col] = null;
       board[r][c+2]=hold;
@@ -36,7 +36,7 @@ void move(chessPiece[][] board, int r, int c) {
       hold.col = c+2;
       }
       if (this.col == 7 || c == 7) {
-        this.history.add(""+this.row+this.col+" castles " +r+c);
+        history.add(""+this.row+this.col+" castles " +r+c);
       board[r][c-1] = this;
       board[this.row][this.col] = null;
       board[r][c-2]=hold;
@@ -45,9 +45,9 @@ void move(chessPiece[][] board, int r, int c) {
       hold.col = c-2;
       }
     }
-    for (int y = 0; y < moves.length; y++) {
-    if ((""+this.row+this.col).equals(moves[y])) {
-      this.history.add(""+this.row+this.col+" to " +r+c);
+    for (int y = 0; y < moves.size(); y++) {
+    if ((""+this.row+this.col).equals(moves.get(y))) {
+      history.add(""+this.row+this.col+" to " +r+c);
       board[r][c] = this;
       board[this.row][this.col] = null;
       row = r;
@@ -59,5 +59,3 @@ void move(chessPiece[][] board, int r, int c) {
 
 //I like dont think we need capture??
   
-}
-}

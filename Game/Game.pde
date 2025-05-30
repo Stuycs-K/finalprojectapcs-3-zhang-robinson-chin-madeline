@@ -3,7 +3,8 @@ ArrayList<String> history;
 //boolean turn;
 void setup() {
   size(1000,1000);
-  board = new Piece[8][8];
+  board = new chessPiece[8][8];
+  //history = new ArrayList<>();
   
   for (int y = 0; y < 8; y++) {
     board[1][y] = new Pawn(1, y, false); 
