@@ -4,6 +4,10 @@ class Knight extends chessPiece{
     super(r,c,white);
   }
   
+  String getPiece(){
+    return "Knight"; 
+  } 
+  
   ArrayList<String> allowedMoves(chessPiece[][] board){
     ArrayList<String> moves = new ArrayList<>();
     int[][] moveSet={

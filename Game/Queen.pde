@@ -2,6 +2,10 @@ class Queen extends chessPiece{
     Queen(int r, int c, boolean white) {
     super(r,c,white);
   }
+  String getPiece(){
+    return "Queen"; 
+  } 
+  
   ArrayList<String> allowedMoves(Piece[][] board) {
     ArrayList<String> moves = new ArrayList<>();
     for (int y = this.row - 1; y >= 0; y--) {

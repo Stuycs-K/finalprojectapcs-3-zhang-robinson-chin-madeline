@@ -3,6 +3,10 @@ class King extends chessPiece{
   King(int r, int c, boolean white) {
     super(r,c,white);
   }
+  
+  String getPiece(){
+    return "King"; 
+  } 
   ArrayList<String> allowedMoves(Piece[][] board) {
     ArrayList<String> moves = new ArrayList<>();
       if (board[this.row-1][this.col] == null) {

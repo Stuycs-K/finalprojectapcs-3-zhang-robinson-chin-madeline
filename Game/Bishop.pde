@@ -3,27 +3,32 @@ class Bishop extends chessPiece{
     super(r,c,white);
   }
   
+  String getPiece(){
+    return "Bishop"; 
+  } 
+  
   ArrayList<String> allowedMoves(chessPiece[][] board){
     ArrayList<String> moves = new ArrayList<>();
     int[][] moveSet={
       {-1,-1},{1,1},{-1,1},{1,-1}
     };
-    
     for(int[] direction:moveSet){
       int newRow = row+direction[0];
       int newCol = col+direction[1];
-      if (inBounds(newRow,newCol)){
+      while (inBounds(newRow,newCol)){
+        chessPiece target = board[newRow][newCol];
+        
         if(board[newRow][newCol]==null){
           moves.add(""+newRow+newCol);
           }
           else {
-            if (board[r][c]==null){
+            if (target.white!=this.white){
               moves.add("" + newRow+newCol); 
              }
              break;
           }
-          newRow+=d[0];
-          newCol+=d[1];
+          newRow+=direction[0];
+          newCol+=direction[1];
         }
       }
       return moves;
