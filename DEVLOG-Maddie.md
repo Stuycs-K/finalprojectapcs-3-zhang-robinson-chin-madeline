@@ -34,5 +34,13 @@ to connect with one another other so they would work properly).
 ### 2025-05-28 - Began work on castling.
 Robinson and I agrued over the division of work and how to split the classes 
 in class today. When I got home, I stuggled on castling for like two hours 
-before I got something that might work.  
+before I got something that might work. 
+
+### 2025-05-28 - Worked on more castling and restricting king movements.
+I continued to work on my castling logic before I rudely discovered 
+that the rook cannot initiate the castling. I deleted a lot of the 
+unecessary code and did my best to clean things up. Then, I began to work on 
+making sure the king could not move in a way that would put itself into 
+check by modifying allowedMoves and adding a helper method. This all took ~2-3 
+hours because I was quite confused and don't really know how to play chess.    
 

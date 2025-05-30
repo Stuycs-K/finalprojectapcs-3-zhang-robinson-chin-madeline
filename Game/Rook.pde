@@ -49,5 +49,6 @@ class Rook extends chessPiece{
         break;
       }
     }
+    return moves;
   }
 }
