@@ -1,4 +1,5 @@
 class Knight extends chessPiece{
+  
   Knight(int r, int c, boolean white){
     super(r,c,white);
   }
@@ -24,5 +25,4 @@ class Knight extends chessPiece{
   boolean inBounds(int r, int c){
     return r>=0 && r<8 && c>=0 && c<8;
   }
-}
 }
