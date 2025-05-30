@@ -1,7 +1,8 @@
 class Queen extends chessPiece{
-    Queen(int r, int c, boolean white) {
+    public Queen(int r, int c, boolean white) {
     super(r,c,white);
   }
+
   String getPiece(){
     return "Queen"; 
   } 

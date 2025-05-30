@@ -1,7 +1,8 @@
 class Rook extends chessPiece{
-  Rook(int r, int c, boolean white) {
+  public Rook(int r, int c, boolean white) {
     super(r,c,white);
   }
+
   String getPiece(){
     return "Rook"; 
   } 
