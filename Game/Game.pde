@@ -48,8 +48,43 @@ void grid() {
   }
 }
 
+void loadImgs(){
+  wPawn=loadImage("wPawn.png");
+  bPawn=loadImage("bPawn.png");
+  wRook=loadImage("wRook.png");
+  bRook=loadImage("bRook.png");
+  wKnight=loadImage("wKnight.png");
+  bKnight=loadImage("bKnight.png");
+  wBishop=loadImage("wBishop.png");
+  bBishop=loadImage("bBishop.png");
+  wQueen=loadImage("wQueen.png");
+  bQueen=loadImage("bQueen.png");
+  wKing=loadImage("wKing.png");
+  bKing=loadImage("bKing.png");
+
+}
 void putP() {
-  for (int y = 0; y < board.length; y++) {
+  for (int row = 0; row<8;row++) {
+    for (int col = 0; col<8; col++){
+      chessPiece p = board[row][col];
+      if (p!=null){
+        PImage img = getImage(p);
+        if(img!=null){
+          image(img,col*125,row*125,125,125);
+        }
+      }
+    }
+  }
+}
+
+PImage getImage(chessPiece p){
+  String preColor;
+  String type = p.getType();
+  if (p.white.equals("w")){
+    preColor="w";
+  }
+  else{
+    preColor ="b";
   }
 }
 
