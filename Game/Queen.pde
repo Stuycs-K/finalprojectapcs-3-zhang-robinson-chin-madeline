@@ -97,5 +97,6 @@ class Queen extends chessPiece{
         break;
       }
     }
+    return moves;
   }
 }

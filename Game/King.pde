@@ -144,6 +144,41 @@ class King extends chessPiece{
       }
       }
       }
- 
+     ArrayList<String> moves1 = new ArrayList<>();
+     for (String move : moves) {
+     int row1 = Integer.parseInt(move.substring(0, 1));
+     int col1 = Integer.parseInt(move.substring(1, 2));
+     Piece opp = board[row1][col1]; 
+     int holdr= this.row;
+     int holc = this.col;
+     
+     board[row1][col1] = this;
+     board[holdr][holdc] = null;
+     this.row=row1;
+     this.col=col1;
+     if (!check(board,row1,col1,this.white)) {
+       moves1.add(move);
+     }
+     board[row1][col1] = opp; 
+     board[holdr][holdc] = this;
+     this.row=holdr;
+     this.col=holdc;
+     }
+     return moves1;
+  }
+  
+  boolean checked(Piece[][] board, int r, int c, boolean white) {
+    for (int y = 0; y < 8; y++) {
+      for (int z = 0; z < 8; z++) {
+        Piece emmy= board[y][z];
+        if (emmy != null && emmy.white != this.white) {
+          ArrayList<String> movess = emmy.allowedMoves(board);
+          if (movess.contains(""+r+c)) {
+            return true;
+          }
+        }
+      }
+    }
+    return false;
   }
 }
