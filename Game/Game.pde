@@ -1,8 +1,11 @@
 chessPiece[][] board;
 ArrayList<String> history;
 //boolean turn;
+PImage wPawn, bPawn, wRook, bRook, wKnight, bKnight, wBishop, bBishop,
+wQueen, bQueen, wKing, bKing;
 void setup() {
   size(1000,1000);
+  loadImgs();
   board = new chessPiece[8][8];
   //history = new ArrayList<>();
   
@@ -42,7 +45,7 @@ void grid() {
         fill(255,255,255);
       }
       else {
-      fill(0,0,0);
+      fill(80,80,80);
       }
       rect(y*125,z*125,125,125);
     }
@@ -79,51 +82,58 @@ void putP() {
 }
 
 PImage getImage(chessPiece p){
-  String preColor = p.white ? "w" :"b";
   String type = p.getPiece();
-  if (preColor.equals("w")&& type.equals("Pawn")){
-    return wPawn;
+  if (p.white){
+    if (type.equals("Pawn")) {
+      return wPawn;
+    }
+    if (type.equals("Rook")) {
+      return wRook;
+    }
+    if (type.equals("King")) {
+      return wKing;
+    }
+    if (type.equals("Queen")) {
+      return wQueen;
+    }
+    if (type.equals("Bishop")) {
+      return wBishop;
+    }
+    if (type.equals("Knight")) {
+      return wKnight;
+    }
   }
-  if (preColor.equals("b")&& type.equals("Pawn")){
-    return bPawn;
-  }
-  if (preColor.equals("w")&& type.equals("Rook")){
-    return wRook;
-  }
-  if (preColor.equals("b")&& type.equals("Rook")){
-    return bRook;
-  }
-  if (preColor.equals("w")&& type.equals("Knight")){
-    return wKnight;
-  }
-  if (preColor.equals("b")&& type.equals("Knight")){
-    return bKnight;
-  }
-  if (preColor.equals("w")&& type.equals("Bishop")){
-    return wBishop;
-  }  
-  if (preColor.equals("b")&& type.equals("Bishop")){
-    return bBishop;
-  }
-  if (preColor.equals("w")&& type.equals("Queen")){
-    return wQueen;
-  }
-  if (preColor.equals("b")&& type.equals("Queen")){
-    return bQueen;
-  }
-  if (preColor.equals("w")&& type.equals("King")){
-    return wKing;
-  }
-  if (preColor.equals("b")&& type.equals("King")){
-    return bKing;
-  }
-  else {
+  else{
+    if (type.equals("Pawn")) {
+      return bPawn;
+    }
+    if (type.equals("Rook")) {
+      return bRook;
+    }
+    if (type.equals("King")) {
+      return bKing;
+    }
+    if (type.equals("Queen")) {
+      return bQueen;
+    }
+    if (type.equals("Bishop")) {
+      return bBishop;
+    }
+    if (type.equals("Knight")) {
+      return bKnight;
+    }  }
     return null;
-  }
 }
+
 
 void display() {
   grid(); 
   }
+  
+void draw() {
+  background(200);
+  display();
+  putP();
+}
   
 //moved castling 

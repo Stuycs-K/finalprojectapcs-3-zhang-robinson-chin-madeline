@@ -7,7 +7,7 @@ class Rook extends chessPiece{
     return "Rook"; 
   } 
   
-  ArrayList<String> allowedMoves(Piece[][] board) {
+  ArrayList<String> allowedMoves(chessPiece[][] board) {
     ArrayList<String> moves = new ArrayList<>();
     for (int y = this.row - 1; y >= 0; y--) {
       if (board[y][this.col] == null) {

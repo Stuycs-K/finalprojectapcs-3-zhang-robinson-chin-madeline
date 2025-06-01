@@ -22,7 +22,7 @@ class Pawn extends chessPiece{
     if(inBounds(row+dir,col)&& board[row+dir] [col]==null){
       moves.add("" +(row+dir) +col);
       
-      if (!hasMoved && board[row+2*dir][col]==null){
+      if (!hasMove && board[row+2*dir][col]==null){
         moves.add(""+(row+2*dir)+col);
       }
     }
@@ -31,7 +31,7 @@ class Pawn extends chessPiece{
   
   void move(chessPiece[][] board, int r, int c){
     super.move(board,r,c);
-    hasMoved=true;
+    hasMove=true;
   }
   
   boolean inBounds(int r, int c){

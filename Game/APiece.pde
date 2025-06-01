@@ -12,7 +12,7 @@ public chessPiece(int r, int c, boolean white) {
 
 abstract String getPiece();
 
-boolean checkSq(int[][] board, int r, int c) {
+boolean checkSq(chessPiece[][] board, int r, int c) {
   if (board[r][c] == null) {
     return true;
   }
@@ -27,8 +27,9 @@ abstract ArrayList<String> allowedMoves(chessPiece[][] board);
 void move(chessPiece[][] board, int r, int c) {
   ArrayList<String> moves = this.allowedMoves(board);
       chessPiece hold = board[r][c];
-    if (this instanceof King && hold instanceof Rook && this.white == hold.white && 
-  this.castle) {
+    if (this instanceof King && hold instanceof Rook && this.white == hold.white) {
+      King ur = (King)this;
+      if (ur. castle) {
       if (this.col == 0 || c == 0) {
         history.add(""+this.row+this.col+" castles " +r+c);
       board[r][c+1] = this;
@@ -59,11 +60,7 @@ void move(chessPiece[][] board, int r, int c) {
   }
 }
 }
+}
 
 //I like dont think we need capture??
   
-<<<<<<< HEAD
-=======
-
-}
->>>>>>> f143de213040039693df0976e43356ebca907262
