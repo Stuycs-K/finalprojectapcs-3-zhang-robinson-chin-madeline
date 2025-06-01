@@ -1,6 +1,8 @@
 chessPiece[][] board;
 ArrayList<String> history;
 //boolean turn;
+PImage wPawn, bPawn, wRook, bRook, wKnight, bKnight, wBishop, bBishop,
+wQueen, bQueen, wKing, bKing;
 void setup() {
   size(1000,1000);
   board = new chessPiece[8][8];
@@ -77,17 +79,62 @@ void putP() {
     }
   }
 }
-
+/*
 PImage getImage(chessPiece p){
   String preColor;
-  String type = p.getType();
-  if (p.white.equals("w")){
+  String type = p.getPiece();
+  if (p.white){
     preColor="w";
   }
   else{
     preColor ="b";
   }
+} */
+
+PImage getImage(chessPiece p){
+  String type = p.getPiece();
+  if (p.white){
+    if (type.equals("Pawn")) {
+      return wPawn;
+    }
+    if (type.equals("Rook")) {
+      return wRook;
+    }
+    if (type.equals("King")) {
+      return wKing;
+    }
+    if (type.equals("Queen")) {
+      return wQueen;
+    }
+    if (type.equals("Bishop")) {
+      return wBishop;
+    }
+    if (type.equals("Knight")) {
+      return wKnight;
+    }
+  }
+  else{
+    if (type.equals("Pawn")) {
+      return bPawn;
+    }
+    if (type.equals("Rook")) {
+      return bRook;
+    }
+    if (type.equals("King")) {
+      return bKing;
+    }
+    if (type.equals("Queen")) {
+      return bQueen;
+    }
+    if (type.equals("Bishop")) {
+      return bBishop;
+    }
+    if (type.equals("Knight")) {
+      return bKnight;
+    }  }
+    return null;
 }
+
 
 void display() {
   grid(); 
