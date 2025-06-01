@@ -50,7 +50,8 @@ Outline:
 	- change to Queen piece when reaching he other end of the board is handled as an edge case in Game
 4. Rook
 	- can move down rows or columns
-	- castling handled ~~in Game~~ (castling now handled in Rook, King, and APiece)
+	- castling handled ~~in Game~~ (castling now handled in ~~Rook,~~ King, and APiece) (I did not know Rooks 
+	could not initiate castling)
 5. Knight
 	- can move in L shapes (two spaces one direction and one in a perpendicular direction to the first)
 6. Bishop
