@@ -5,6 +5,7 @@ PImage wPawn, bPawn, wRook, bRook, wKnight, bKnight, wBishop, bBishop,
 wQueen, bQueen, wKing, bKing;
 void setup() {
   size(1000,1000);
+  loadImgs();
   board = new chessPiece[8][8];
   //history = new ArrayList<>();
   
@@ -44,7 +45,7 @@ void grid() {
         fill(255,255,255);
       }
       else {
-      fill(0,0,0);
+      fill(80,80,80);
       }
       rect(y*125,z*125,125,125);
     }
@@ -139,5 +140,11 @@ PImage getImage(chessPiece p){
 void display() {
   grid(); 
   }
+  
+void draw() {
+  background(200);
+  display();
+  putP();
+}
   
 //moved castling 
