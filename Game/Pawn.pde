@@ -36,7 +36,7 @@ class Pawn extends chessPiece{
         }
         else if(board[y][x]==null&&board[row][x] instanceof Pawn){
           Pawn target = (Pawn) board[row][x];
-          if (target.white != white && target  == Game.lastDoubleStep){
+          if (target.white != white && target  == Game.lastDoubleStep&& ((white && row ==3)||(!white && row ==4))){
             moves.add(""+y+x);
           }
         }
@@ -46,18 +46,23 @@ class Pawn extends chessPiece{
   }
   
   void move(chessPiece[][] board, int r, int c){
+    if (Math.abs(c-col)==1&&board[r][c]==null){
+      board[row][c]=null;
+    }
+    int oldRow = row;
+    
     super.move(board,r,c);
     hasMove=true;
-    int dir; 
-    if(white){
-      dir=-1;
+    
+    if (Math.abs(r-oldRow)==2){
+      Game.lastDoubleStep=this;
     }
     else{
-      dir =1;
+      Game.lastDoubleStep=null;
     }
     
-    if (Math.abs(c-col)==1&&board[r][c]==null){
-      board[r-dir][c]=null;
+    if((white && r ==0)|| (!white&&r==7)){
+      board[r][c]=new Queen(r,c,white);
     }
   }
   
