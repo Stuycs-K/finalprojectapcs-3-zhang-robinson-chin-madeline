@@ -145,11 +145,13 @@ void mousePressed() {
   else {
     ArrayList<String> moves = hold.allowedMoves(board);
     if (moves.contains(""+row+col)) {
+      
       board[row][col] = hold;
       board[hold.row][hold.col] = null;
       hold.row = row; 
       hold.col = col;
       //hold = null;
+      hold.move(board,row,col);
       turn = !turn;
     }
     hold = null;

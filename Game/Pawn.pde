@@ -30,7 +30,7 @@ class Pawn extends chessPiece{
     for (int dx:sides){
       int x=col +dx;
       int y = row+ dir;
-      if (inBounds(x,y)){
+      if (inBounds(y,x)){
         if(board[y][x]!=null&& board[y][x].white!=white){
           moves.add(""+y+x);
         }
@@ -45,24 +45,23 @@ class Pawn extends chessPiece{
     return moves;
   }
   
+  
   void move(chessPiece[][] board, int r, int c){
     if (Math.abs(c-col)==1&&board[r][c]==null){
       board[row][c]=null;
     }
     int oldRow = row;
-    
     super.move(board,r,c);
     hasMove=true;
     
-    if (Math.abs(r-oldRow)==2){
+    if ((white&&row==0) || (!white && row ==7)){
+      board[row][col]=new Queen(row,col,white);
+    }
+    if(Math.abs(row-oldRow)==2){
       Game.lastDoubleStep=this;
     }
     else{
       Game.lastDoubleStep=null;
-    }
-    
-    if((white && r ==0)|| (!white&&r==7)){
-      board[r][c]=new Queen(r,c,white);
     }
   }
   
