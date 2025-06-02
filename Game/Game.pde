@@ -3,6 +3,8 @@ ArrayList<String> history;
 boolean turn;
 PImage wPawn, bPawn, wRook, bRook, wKnight, bKnight, wBishop, bBishop,
 wQueen, bQueen, wKing, bKing;
+static Pawn lastDoubleStep=null;
+
 void setup() {
   size(1000,1000);
   loadImgs();
