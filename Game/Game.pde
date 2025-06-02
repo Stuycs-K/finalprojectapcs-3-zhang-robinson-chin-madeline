@@ -192,6 +192,39 @@ boolean check(boolean turn) {
   return false;
 }
 
+boolean checkmate (boolean chessColor){
+  if (!check(chessColor)){
+    return false;
+  }
+  for (int i = 0; i<8;i++){
+    for (int j=0;j<8;j++){
+      chessPiece piece = board[i][j];
+      if(piece!=null&& piece.white==chessColor){
+        ArrayList<String> moves = piece.allowedMoves(board);
+        if (moves.size()>0){
+          return false;
+        }
+      }
+    }
+  }
+  return true;
+}
 
-  
+boolean stalemate (boolean chessColor){
+  if (check(chessColor)){
+    return false;
+  }
+  for (int i = 0; i<8;i++){
+    for (int j=0;j<8;j++){
+      chessPiece piece = board[i][j];
+      if(piece!=null&& piece.white==chessColor){
+        ArrayList<String> moves = piece.allowedMoves(board);
+        if (moves.size()>0){
+          return false;
+        }
+      }
+    }
+  }
+  return true;
+}
 //moved castling 
