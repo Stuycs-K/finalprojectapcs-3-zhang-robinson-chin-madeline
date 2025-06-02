@@ -1,6 +1,6 @@
 chessPiece[][] board;
 ArrayList<String> history;
-//boolean turn;
+boolean turn;
 PImage wPawn, bPawn, wRook, bRook, wKnight, bKnight, wBishop, bBishop,
 wQueen, bQueen, wKing, bKing;
 void setup() {
@@ -36,7 +36,7 @@ void setup() {
   board[7][4] = new King(7, 4, true);
 
   history = new ArrayList<String>();
-  //turn = false; //false will be 'white' and true will be 'black'
+  turn = true; //false will be 'white' and true will be 'black'
 }
 void grid() {
   for (int y = 0; y < width / 125; y++) {
@@ -45,7 +45,7 @@ void grid() {
         fill(255,255,255);
       }
       else {
-      fill(80,80,80);
+      fill(40,40,40);
       }
       rect(y*125,z*125,125,125);
     }
@@ -146,5 +146,35 @@ void draw() {
   display();
   putP();
 }
+
+boolean check(boolean turn) {
+  int row = -1;
+  int col = -1;
+  for (int y = 0; y < 8; y++) {
+    for (int z = 0; z < 8; z++) {
+      chessPiece hold = board[y][z];
+      if (hold instanceof King && hold.white == turn) {
+        row = y;
+        col = z;
+      }
+    }
+  }
+  if (row == -1 || col == -1) {
+    println("king not found");
+    return false;
+  }
+  for (int y = 0; y < 8; y++) {
+    for (int z = 0; z < 8; z++) {
+      if (board[y][z] != null && board[y][z].white != board[row][col].white) {
+        if (board[y][z].allowedMoves(board).contains(""+row+col)) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+
   
 //moved castling 
