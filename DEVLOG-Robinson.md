@@ -16,3 +16,6 @@ Maddie and I argued in class about some miscommuncation and where check and chec
 2025-05-29 Bishop class (2 hours)
 Maddie and I were discussing the special casses in class, and I gave her misleading information on how castling was initiated, I was also told I needed to draw the board, I had forgotten to do so. 
 At home I worked on the Bishop class for around 40 minutes then around an hour twenty to get the pieces to be placed and move on the board before I was too tired to continue and I took an hour nap that took 7 hours.
+
+2025-05-30 to 06-02 (6 hours)
+On friday in class me and Maddie discussed what we had to do while fixing some errors and bugs in the code. (~ 30 minutes). Was not able to work on Saturday due to a personal situation. Sunday slept in and started working on the first iteration of the pawn enpassant and capture (~1.5 hours). I got the pawn captureing to work (~30 minutes) and enpassant to work (~1 hour). Then I focused on my pawn promotion, at first the logic was correct but the board didn't update so I changed the method. (~1 hour) Then I realized the problem was in the game file so I started to work my way through the code eventually finding the source of the bug and fixing it (~1 hour). Then I picked up where Maddie left off and worked on the Checkmate and stalemate methods completing both. (~1.5 hours)
