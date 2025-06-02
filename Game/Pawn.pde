@@ -26,6 +26,21 @@ class Pawn extends chessPiece{
         moves.add(""+(row+2*dir)+col);
       }
     }
+    int [] sides ={-1,1};
+    for (int dx:sides){
+      int x=col +dx;
+      int y = col+ dir;
+      if (inBounds(x,y)){
+        if(board[y][x]!=null&& board[y][x].white!=white){
+          moves.add(""+y+x);
+        }
+        else if(board[y][x]==null&&board[row][x] instanceof Pawn){
+          Pawn target = (Pawn) board[row][x];
+          if (target.white != white && target  == Game.){
+          }
+        }
+      }
+    }
     return moves;
   }
   
