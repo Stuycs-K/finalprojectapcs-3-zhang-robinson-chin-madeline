@@ -36,11 +36,21 @@ Robinson and I agrued over the division of work and how to split the classes
 in class today. When I got home, I stuggled on castling for like two hours 
 before I got something that might work. 
 
-### 2025-05-28 - Worked on more castling and restricting king movements.
+### 2025-05-29 - Worked on more castling and restricting king movements.
 I continued to work on my castling logic before I rudely discovered 
 that the rook cannot initiate the castling. I deleted a lot of the 
 unecessary code and did my best to clean things up. Then, I began to work on 
 making sure the king could not move in a way that would put itself into 
 check by modifying allowedMoves and adding a helper method. This all took ~2-3 
-hours because I was quite confused and don't really know how to play chess.    
+hours because I was quite confused and don't really know how to play chess.   
+
+### 2025-05-30 (includes weekend) - Fixed errors, worked on checkmate, made the board work.
+During class and at home, I worked on going through all the processing 
+errors we had and fixing them (~1 hour). Then, I rewrote the code that 
+displayed the board images so all the pieces would show up nicely and load
+properly (<45 mins). I updated the prototype and UML diagram to more 
+accurately describe our code and I began working on the checkmate method 
+of the game (~1 hour). Finally, I realized our board wasn't displaying the 
+pieces' moves and only displayed the starting board, so I stop writing the checkmate 
+code in favor of fixing that (~1.5 hours).  
 
