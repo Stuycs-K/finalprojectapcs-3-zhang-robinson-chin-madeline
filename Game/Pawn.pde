@@ -36,7 +36,7 @@ class Pawn extends chessPiece{
         }
         else if(board[y][x]==null&&board[row][x] instanceof Pawn){
           Pawn target = (Pawn) board[row][x];
-          if (target.white != white && target  == Game.){
+          if (target.white != white && target  == Game.lastDoubleStep){
           }
         }
       }
