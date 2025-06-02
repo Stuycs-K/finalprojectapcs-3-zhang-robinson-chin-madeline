@@ -57,11 +57,11 @@ class Queen extends chessPiece{
     
     for (int y = this.row + 1, z = this.col + 1; y < 8 && z < 8; y++, z++) {
       if (board[y][z] == null) {
-        moves.add(""+this.row+y);
+        moves.add(""+y+z);
       }
       else {
         if (board[y][z].white != this.white) {
-          moves.add(""+this.row+y);
+          moves.add(""+y+z);
         }
         break;
       }
@@ -69,11 +69,11 @@ class Queen extends chessPiece{
     
     for (int y = this.row - 1, z = this.col - 1; y >=0 && z >=0; y--, z--) {
       if (board[y][z] == null) {
-        moves.add(""+this.row+y);
+        moves.add(""+y+z);
       }
       else {
         if (board[y][z].white != this.white) {
-          moves.add(""+this.row+y);
+          moves.add(""+y+z);
         }
         break;
       }
@@ -81,11 +81,11 @@ class Queen extends chessPiece{
     
     for (int y = this.row - 1, z = this.col + 1; y >=0 && z < 8; y--, z++) {
       if (board[y][z] == null) {
-        moves.add(""+this.row+y);
+        moves.add(""+y+z);
       }
       else {
         if (board[y][z].white != this.white) {
-          moves.add(""+this.row+y);
+          moves.add(""+y+z);
         }
         break;
       }
@@ -93,11 +93,11 @@ class Queen extends chessPiece{
     
     for (int y = this.row + 1, z = this.col - 1; y < 8 && z >=0; y++, z--) {
       if (board[y][z] == null) {
-        moves.add(""+this.row+y);
+        moves.add(""+y+z);
       }
       else {
         if (board[y][z].white != this.white) {
-          moves.add(""+this.row+y);
+          moves.add(""+y+z);
         }
         break;
       }

@@ -145,7 +145,9 @@ void mousePressed() {
     if (moves.contains(""+row+col)) {
       board[row][col] = hold;
       board[hold.row][hold.col] = null;
-      hold = null;
+      hold.row = row; 
+      hold.col = col;
+      //hold = null;
       turn = !turn;
     }
     hold = null;
