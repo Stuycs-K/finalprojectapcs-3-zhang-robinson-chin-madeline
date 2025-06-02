@@ -80,17 +80,6 @@ void putP() {
     }
   }
 }
-/*
-PImage getImage(chessPiece p){
-  String preColor;
-  String type = p.getPiece();
-  if (p.white){
-    preColor="w";
-  }
-  else{
-    preColor ="b";
-  }
-} */
 
 PImage getImage(chessPiece p){
   String type = p.getPiece();
