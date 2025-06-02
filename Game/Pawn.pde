@@ -37,6 +37,7 @@ class Pawn extends chessPiece{
         else if(board[y][x]==null&&board[row][x] instanceof Pawn){
           Pawn target = (Pawn) board[row][x];
           if (target.white != white && target  == Game.lastDoubleStep){
+            moves.add(""+y+x);
           }
         }
       }
@@ -47,6 +48,17 @@ class Pawn extends chessPiece{
   void move(chessPiece[][] board, int r, int c){
     super.move(board,r,c);
     hasMove=true;
+    int dir; 
+    if(white){
+      dir=-1;
+    }
+    else{
+      dir =1;
+    }
+    
+    if (Math.abs(c-col)==1&&board[r][c]==null){
+      board[r-dir][c]=null;
+    }
   }
   
   boolean inBounds(int r, int c){
