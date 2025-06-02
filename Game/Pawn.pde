@@ -22,14 +22,14 @@ class Pawn extends chessPiece{
     if(inBounds(row+dir,col)&& board[row+dir] [col]==null){
       moves.add("" +(row+dir) +col);
       
-      if (!hasMove && board[row+2*dir][col]==null){
+      if (!hasMove && inBounds(row+2*dir,col)&&board[row+2*dir][col]==null){
         moves.add(""+(row+2*dir)+col);
       }
     }
     int [] sides ={-1,1};
     for (int dx:sides){
       int x=col +dx;
-      int y = col+ dir;
+      int y = row+ dir;
       if (inBounds(x,y)){
         if(board[y][x]!=null&& board[y][x].white!=white){
           moves.add(""+y+x);
