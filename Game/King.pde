@@ -1,5 +1,6 @@
 class King extends chessPiece{
   boolean castle;
+  boolean check = false;
   public King(int r, int c, boolean white) {
     super(r,c,white);
     //castle = false;
@@ -11,63 +12,64 @@ class King extends chessPiece{
   } 
   ArrayList<String> allowedMoves(chessPiece[][] board) {
     ArrayList<String> moves = new ArrayList<>();
-      if (board[this.row-1][this.col] == null) {
+      if (row - 1 > 0 && board[this.row-1][this.col] == null) {
         moves.add(""+(this.row-1)+this.col);
       }
-      else if (board[this.row-1][this.col].white != this.white) {
+      else if (row - 1 > 0 && board[this.row-1][this.col].white != this.white) {
           moves.add(""+(this.row-1)+this.col);
         }
     
-      if (board[this.row+1][this.col] == null) {
+      if (row + 1 < 8 && board[this.row+1][this.col] == null) {
         moves.add(""+(this.row+1)+this.col);
       }
-      else if (board[this.row+1][this.col].white != this.white) {
+      else if (row + 1 < 8 && board[this.row+1][this.col].white != this.white) {
           moves.add(""+(this.row+1)+this.col);
         }
  
     
-    if (board[this.row][this.col - 1] == null) {
+    if (col - 1 >0 && board[this.row][this.col - 1] == null) {
         moves.add(""+this.row+(this.col-1));
       }
-      else if (board[this.row][this.col - 1].white != this.white) {
+      else if (col - 1 >0 && board[this.row][this.col - 1].white != this.white) {
           moves.add(""+(this.row)+(this.col - 1));
         }
         
-    if (board[this.row][this.col + 1] == null) {
+    if (col + 1 <8 && board[this.row][this.col + 1] == null) {
         moves.add(""+this.row+(this.col+1));
       }
-      else if (board[this.row][this.col +1].white != this.white) {
+      else if (col + 1< 8 && board[this.row][this.col +1].white != this.white) {
           moves.add(""+(this.row)+(this.col + 1));
         }
     
-    if (board[this.row+1][this.col + 1] == null) {
+    if (row + 1 < 8 && col+1 <8 && board[this.row+1][this.col + 1] == null) {
         moves.add(""+(this.row+1)+(this.col+1));
       }
-      else if (board[this.row+1][this.col + 1].white != this.white) {
+      else if (row + 1 < 8 && col+1 <8 && board[this.row+1][this.col + 1].white != this.white) {
           moves.add(""+(this.row+1)+(this.col + 1));
         }
     
-    if (board[this.row-1][this.col - 1] == null) {
+    if (row - 1 >0 && col-1 >0 &&board[this.row-1][this.col - 1] == null) {
         moves.add(""+(this.row-1)+(this.col-1));
       }
-      else if (board[this.row-1][this.col - 1].white != this.white) {
+      else if (row - 1 >0 && col-1 >0 && board[this.row-1][this.col - 1].white != this.white) {
           moves.add(""+(this.row-1)+(this.col - 1));
         }
     
-    if (board[this.row-1][this.col + 1] == null) {
+    if (row - 1 >0 && col+1 <8 &&board[this.row-1][this.col + 1] == null) {
         moves.add(""+(this.row-1)+(this.col+1));
       }
-      else if (board[this.row-1][this.col + 1].white != this.white) {
+      else if (row - 1 >0 && col+1 <8 &&board[this.row-1][this.col + 1].white != this.white) {
           moves.add(""+(this.row-1)+(this.col + 1));
         }
     
-    if (board[this.row+1][this.col - 1] == null) {
+    if (row +1 <8 && col-1 >0 && board[this.row+1][this.col - 1] == null) {
         moves.add(""+(this.row+1)+(this.col-1));
       }
-      else if (board[this.row+1][this.col - 1].white != this.white) {
+      else if (row +1 <8 && col-1 >0 && board[this.row+1][this.col - 1].white != this.white) {
           moves.add(""+(this.row+1)+(this.col - 1));
         }
         
+        if (!check){
         boolean king1 = true;
         boolean king2 = true; 
         boolean king3 = true;
@@ -150,6 +152,11 @@ class King extends chessPiece{
       }
       }
       }
+        }
+      
+      if (check) {
+        return moves;
+      }
      ArrayList<String> moves1 = new ArrayList<>();
      for (String move : moves) {
      int row1 = Integer.parseInt(move.substring(0, 1));
@@ -178,7 +185,9 @@ class King extends chessPiece{
       for (int z = 0; z < 8; z++) {
         chessPiece emmy= board[y][z];
         if (emmy != null && emmy.white != this.white) {
+          check = true;
           ArrayList<String> movess = emmy.allowedMoves(board);
+          check = false;
           if (movess.contains(""+r+c)) {
             return true;
           }

@@ -130,6 +130,28 @@ void display() {
   grid(); 
   }
   
+chessPiece hold = null;
+void mousePressed() {
+  int row = mouseY / 125;
+  int col = mouseX / 125;
+  if (hold == null) {
+    chessPiece piece = board[row][col];
+    if(piece != null && piece.white == turn) {
+      hold = piece;
+    }
+  }
+  else {
+    ArrayList<String> moves = hold.allowedMoves(board);
+    if (moves.contains(""+row+col)) {
+      board[row][col] = hold;
+      board[hold.row][hold.col] = null;
+      hold = null;
+      turn = !turn;
+    }
+    hold = null;
+  }
+}
+  
 void draw() {
   background(200);
   display();
