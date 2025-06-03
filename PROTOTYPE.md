@@ -65,40 +65,55 @@ Outline:
 # Intended pacing:
 
 Robinson:
-1. Board Setup
-   - Setup a 8 by 8 board as a 2D array
-   - Place all pieces in starting positions
-   - Work on abstract Piece class
+1. Logic 
+   - Checkmate logic and execution
+   - Highlight
+   
+2. Board Setup
+   - ~~Setup a 8 by 8 board as a 2D array~~
+   - Import all images
+   - Place all images of pieces in starting positions on the board
+   - ~~Work on abstract Piece class~~
 
-2. Pawn
+3. Pawn
    - One space forward
    - Two spaces on first move
    - Diagonal capture
    - En passant
    - Pawn Promotion
 
-3. Knight
+4. Knight
    - L shaped movement and capture
    - Can jump over pieces
 
-4. Bishop
+5. Bishop
    - Diagonal Movement and capture
 
 Maddie:
 1. Logic
-   - Work on check and checkmate logic
+   - Work on check ~~and checkmate logic~~ (gave it to robby)
    - Check for legal and illegal moves
    - Castling
+   
+2. Board
+   - Setup a 8 by 8 board as a 2D array
+   - Put correct pieces in the array
+   - Move execution/player turns
 
-2. Rook
+3. Piece 
+   - Write abstract methods
+
+4. Rook
    - Horizontal and vertical movement and capture
 
-3. Queen
+5. Queen
    - Combination of Rook and Bishop movement and capture
 
-4. King
+6. King
    - One square in any direction and capture
    - Can't put themselves in check/checkmate
+   
+ 
 
 Shared:
    - Play though the game
@@ -109,6 +124,7 @@ Shared:
   - Clean up redundant code
   - Add comments throughout the coding process
   - Prepare demo and walk-through for presentation
+  - History bar
 
 A timeline with expected completion dates of parts of the project:
 
@@ -144,3 +160,9 @@ Phase 4: Testing and Polishing (June 1)
       - Switching and capturing
       - Any UI tweaks
   - Prepare demo and presentation
+  
+Phase 5: Cleaning up (June 9)
+  - Clean up any errors
+  - Make the board pretty
+  - Finish up any faulty methods (castling, checkmate, highlight)
+  - Video!
