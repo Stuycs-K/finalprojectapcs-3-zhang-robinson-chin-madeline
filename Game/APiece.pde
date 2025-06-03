@@ -29,25 +29,32 @@ void move(chessPiece[][] board, int r, int c) {
       chessPiece hold = board[r][c];
     if (this instanceof King && hold instanceof Rook && this.white == hold.white) {
       King ur = (King)this;
-      if (ur. castle) {
-      if (this.col == 0 || c == 0) {
+      if (ur.castle) {
+      if (c == 0) {
         history.add(""+this.row+this.col+" castles " +r+c);
-      board[r][c+1] = this;
+      board[r][2] = this;
+       board[r][3]=hold;
       board[this.row][this.col] = null;
-      board[r][c+2]=hold;
       board[r][c] = null;
-      this.col = c+1;
-      hold.col = c+2;
+      this.col = 2;
+      this.row = r;
+      hold.col = 3;
+      //turn = !turn;
+      return;
       }
-      if (this.col == 7 || c == 7) {
+      if (c == 7) {
         history.add(""+this.row+this.col+" castles " +r+c);
-      board[r][c-1] = this;
+      board[r][6] = this;
       board[this.row][this.col] = null;
-      board[r][c-2]=hold;
+      board[r][5]=hold;
       board[r][c] = null;
-      this.col = c-1;
-      hold.col = c-2;
+      this.col = 6;
+      this.row=r;
+      hold.col = 5;
+      //turn = !turn;
+      return;
       }
+    }
     }
     for (int y = 0; y < moves.size(); y++) {
     if ((""+this.row+this.col).equals(moves.get(y))) {
@@ -56,9 +63,9 @@ void move(chessPiece[][] board, int r, int c) {
       board[this.row][this.col] = null;
       row = r;
       col = c;
+      return;
     }
   }
-}
 }
 }
 

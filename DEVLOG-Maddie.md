@@ -54,3 +54,10 @@ of the game (~1 hour). Finally, I realized our board wasn't displaying the
 pieces' moves and only displayed the starting board, so I stop writing the checkmate 
 code in favor of fixing that (~1.5 hours).  
 
+### 2025-06-02 - Prepared for demo of MVP and more castling.
+During class, Robby and I tried our best to not to break our code before showing 
+off the MVP, and we mostly just talked about what else needed to be completed or 
+tweaked by next week. Only Robby pushed so I didn't mess things up. We changed the color of the board to be prettier (a light brown :D!) 
+and allow for the pieces to be seen more easily. At home, I continued 
+to work on castling because it currently does not work properly (~1 hour).    
+
