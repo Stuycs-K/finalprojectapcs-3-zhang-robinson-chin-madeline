@@ -50,7 +50,7 @@ Outline:
 	- change to Queen piece when reaching he other end of the board is handled as an edge case in Game
 4. Rook
 	- can move down rows or columns
-	- castling handled ~~in Game~~ (castling now handled in ~~Rook,~~ King, and APiece) (I did not know Rooks 
+	- castling handled ~~in Game~~ (castling now handled in ~~Rook,~~ King, and APiece) (I did not know Rooks
 	could not initiate castling)
 5. Knight
 	- can move in L shapes (two spaces one direction and one in a perpendicular direction to the first)
@@ -60,48 +60,51 @@ Outline:
 	- can move in all directions
 8. King
 	- can move in all directions, but only one space at a time
-	- castling handled ~~in Game~~ (castling now handled in Rook, King, and APiece)
+	- castling handled ~~in Game~~ (castling now handled in ~~Rook,~~ King, and APiece)
 
 # Intended pacing:
 
 Robinson:
-1. Logic 
-   - Checkmate logic and execution
+1. Logic
+   - Checkmate/stalemate logic and execution
+	 		- Pieces unable to eat King
    - Highlight
-   
+
 2. Board Setup
-   - ~~Setup a 8 by 8 board as a 2D array~~
+   - ~~Setup a 8 by 8 board as a 2D array~~ (maddie stole it)
    - Import all images
-   - Place all images of pieces in starting positions on the board
-   - ~~Work on abstract Piece class~~
+   - ~~Work on abstract Piece class~~ (mostly maddie)
+	 - History bar
 
 3. Pawn
    - One space forward
    - Two spaces on first move
+	 - Can't move backwards
    - Diagonal capture
-   - En passant
-   - Pawn Promotion
+   - ~~En passant~~ (robby gave up :( sharing now!!!)
+   - Pawn promotion to Queen
 
 4. Knight
    - L shaped movement and capture
    - Can jump over pieces
 
 5. Bishop
-   - Diagonal Movement and capture
+   - Diagonal movement and capture
 
 Maddie:
 1. Logic
    - Work on check ~~and checkmate logic~~ (gave it to robby)
-   - Check for legal and illegal moves
-   - Castling
-   
-2. Board
-   - Setup a 8 by 8 board as a 2D array
-   - Put correct pieces in the array
+   - ~~Check for legal and illegal moves~~ (we both did this in our own respective classes)
+   - Castling (in King and APiece class)
+	 - Mouse-click moving
+
+2. Board Setup
+   - Setup a checkered 8 by 8 board as a 2D array
+   - Put the correct pieces in the array so they display properly
    - Move execution/player turns
 
-3. Piece 
-   - Write abstract methods
+3. APiece
+   - Abstract/base methods (robby helped a little)
 
 4. Rook
    - Horizontal and vertical movement and capture
@@ -111,20 +114,23 @@ Maddie:
 
 6. King
    - One square in any direction and capture
+	 - Initiates castling (click on King then Rook when no pieces are in the way)
    - Can't put themselves in check/checkmate
-   
- 
+
 
 Shared:
    - Play though the game
-       - Legal and illegal moves
+       - ~~Legal and illegal moves~~ (already stated)
        - Capturing
-       - Turn switching
+       - ~~Turn switching~~ (easily handled by one person)
+	- Allowed moves for each piece
+	- En passant
   - Debug
   - Clean up redundant code
   - Add comments throughout the coding process
+	- Make preset boards
   - Prepare demo and walk-through for presentation
-  - History bar
+  - ~~History bar~~ (robby has to do this now)
 
 A timeline with expected completion dates of parts of the project:
 
@@ -160,9 +166,10 @@ Phase 4: Testing and Polishing (June 1)
       - Switching and capturing
       - Any UI tweaks
   - Prepare demo and presentation
-  
+
 Phase 5: Cleaning up (June 9)
   - Clean up any errors
   - Make the board pretty
-  - Finish up any faulty methods (castling, checkmate, highlight)
+  - Finish up any faulty/remaining methods (castling, checkmate, highlight, move log)
+	- Add preset boards for demo and testing
   - Video!
