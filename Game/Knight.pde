@@ -18,7 +18,7 @@ class Knight extends chessPiece{
       int newRow = row+direction[0];
       int newCol = col+direction[1];
       if (inBounds(newRow,newCol)){
-        if(board[newRow][newCol]==null||!board[newRow][newCol].white){
+        if(board[newRow][newCol]==null||(board[newRow][newCol].white!= this.white && !(board[newRow][newCol]instanceof King))){
           moves.add("" + newRow+""+newCol); 
         }
       }

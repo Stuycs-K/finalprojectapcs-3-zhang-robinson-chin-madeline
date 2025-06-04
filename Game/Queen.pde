@@ -60,7 +60,7 @@ class Queen extends chessPiece{
         moves.add(""+y+z);
       }
       else {
-        if (board[y][z].white != this.white) {
+        if (board[y][z].white != this.white&& !(board[y][z] instanceof King)) {
           moves.add(""+y+z);
         }
         break;
@@ -72,7 +72,7 @@ class Queen extends chessPiece{
         moves.add(""+y+z);
       }
       else {
-        if (board[y][z].white != this.white) {
+        if (board[y][z].white != this.white&& !(board[y][z] instanceof King)) {
           moves.add(""+y+z);
         }
         break;
@@ -84,7 +84,7 @@ class Queen extends chessPiece{
         moves.add(""+y+z);
       }
       else {
-        if (board[y][z].white != this.white) {
+        if (board[y][z].white != this.white&& !(board[y][z] instanceof King)) {
           moves.add(""+y+z);
         }
         break;
@@ -96,7 +96,7 @@ class Queen extends chessPiece{
         moves.add(""+y+z);
       }
       else {
-        if (board[y][z].white != this.white) {
+        if (board[y][z].white != this.white&& !(board[y][z] instanceof King)) {
           moves.add(""+y+z);
         }
         break;

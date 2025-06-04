@@ -22,7 +22,7 @@ class Bishop extends chessPiece{
           moves.add(""+newRow+newCol);
           }
           else {
-            if (target.white!=this.white&& (target instanceof King)){
+            if (target.white!=this.white&& !(target instanceof King)){
               moves.add("" + newRow+newCol); 
              }
              break;

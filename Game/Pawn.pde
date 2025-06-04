@@ -31,7 +31,7 @@ class Pawn extends chessPiece{
       int x=col +dx;
       int y = row+ dir;
       if (inBounds(y,x)){
-        if(board[y][x]!=null&& board[y][x].white!=white){
+        if(board[y][x]!=null&& board[y][x].white!=white&& !(board[y][x] instanceof King)){
           moves.add(""+y+x);
         }
         else if(board[y][x]==null&&board[row][x] instanceof Pawn){
