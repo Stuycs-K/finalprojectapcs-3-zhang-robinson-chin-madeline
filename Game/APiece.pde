@@ -33,12 +33,13 @@ void move(chessPiece[][] board, int r, int c) {
       if (c == 0) {
         history.add(""+this.row+this.col+" castles " +r+c);
       board[r][2] = this;
-       board[r][3]=hold;
+       board[r][3] = hold;
       board[this.row][this.col] = null;
       board[r][c] = null;
       this.col = 2;
       this.row = r;
       hold.col = 3;
+      hold.row = r;
       //turn = !turn;
       return;
       }
@@ -56,16 +57,19 @@ void move(chessPiece[][] board, int r, int c) {
       }
     }
     }
-    for (int y = 0; y < moves.size(); y++) {
-    if ((""+this.row+this.col).equals(moves.get(y))) {
-      history.add(""+this.row+this.col+" to " +r+c);
+   // for (int y = 0; y < moves.size(); y++) {
+  //  if ((""+this.row+this.col).equals(moves.get(y))) {
+    if (moves.contains(""+r+c)) {
+       
+    history.add(""+this.row+this.col+" to " +r+c);
       board[r][c] = this;
       board[this.row][this.col] = null;
       row = r;
       col = c;
       return;
     }
-  }
+    //}
+//  }
 }
 }
 
