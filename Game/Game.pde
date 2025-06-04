@@ -4,7 +4,7 @@ boolean turn;
 PImage wPawn, bPawn, wRook, bRook, wKnight, bKnight, wBishop, bBishop,
 wQueen, bQueen, wKing, bKing;
 static Pawn lastDoubleStep=null;
-
+ArrayList<String> highlightSquares=new ArrayList<String>();
 void setup() {
   size(1000,1000);
   loadImgs();
@@ -138,11 +138,13 @@ void mousePressed() {
   int col = mouseX / 125;
   if (hold == null) {
     chessPiece piece = board[row][col];
-    if(piece != null && piece.white == turn) {
-      hold = piece;
-    }
+    if (piece!=null&& piece.white == turn){
+    hold=piece;
+    highlightSquares = piece.allowedMoves(board); 
+  } else {
+    highlightSquares = new ArrayList<String>();
   }
-  else {
+}else {
     ArrayList<String> moves = hold.allowedMoves(board);
     if (moves.contains(""+row+col)) {
       
@@ -155,12 +157,31 @@ void mousePressed() {
       turn = !turn;
     }
     hold = null;
+    highlightSquares = new ArrayList<String>();
   }
 }
-  
+
+void highlightMoves(){
+  noStroke();
+  fill(0,255,0,120);
+  for (String move: highlightSquares){
+    int row = int (move.substring(0,1));
+    int col = int(move.substring(1,2));
+    ellipse(col*125+62,row*125+62,80,80);
+  }
+}
+
+void highlightSelectedPiece(){
+  if (hold !=null){
+    fill(255,255,0,120);
+    rect(hold.col*125,hold.row*125,125,125);
+  }
+}
 void draw() {
   background(200);
   display();
+  highlightSelectedPiece();
+  highlightMoves();
   putP();
 }
 
