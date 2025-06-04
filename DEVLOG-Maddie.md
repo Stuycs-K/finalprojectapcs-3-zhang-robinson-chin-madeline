@@ -59,5 +59,14 @@ During class, Robby and I tried our best to not to break our code before showing
 off the MVP, and we mostly just talked about what else needed to be completed or 
 tweaked by next week. Only Robby pushed so I didn't mess things up. We changed the color of the board to be prettier (a light brown :D!) 
 and allow for the pieces to be seen more easily. At home, I continued 
-to work on castling because it currently does not work properly (~1 hour).    
+to work on castling because it currently does not work properly (~1 hour).   
+
+### 2025-06-03 - I defeated castling.
+In class, we discussed what was left to be done of our project. I have to 
+at least finish the castling function and make the preset boards for showcasing 
+the game's features by Friday. Robby has the other stuff. One of us will 
+probably make the move history bar later. Additionally, I identified some 
+problem areas with my code regarding castling, and I looked at them more 
+closely when I got home. Then, I finally got castling to work as intended (~45 minutes, not including class time).  
+
 
