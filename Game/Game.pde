@@ -144,6 +144,15 @@ void mousePressed() {
   }
   else {
     ArrayList<String> moves = hold.allowedMoves(board);
+    
+    if (hold instanceof King && board[row][col] instanceof Rook) {
+      if (hold.white == board[row][col].white) {
+        hold.move(board,row,col);
+        turn=!turn;
+        hold=null;
+        return;
+      }
+    }
     if (moves.contains(""+row+col)) {
       
       board[row][col] = hold;

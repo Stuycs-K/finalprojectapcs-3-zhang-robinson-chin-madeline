@@ -103,7 +103,7 @@ class King extends chessPiece{
         if(king1) {
           for (int y = this.col - 1; y >= 0; y--) {
             if (y == 0) {
-              //moves.add(""+this.row+y);
+              moves.add(""+this.row+y);
               castle = true;
             }
             if (board[this.row][y] != null) {
@@ -114,7 +114,7 @@ class King extends chessPiece{
         if(king2) {
           for (int y = this.col + 1; y < 8; y++) {
             if (y == 7) {
-              //moves.add(""+this.row+y);
+              moves.add(""+this.row+y);
               castle = true;
             }
             if (board[this.row][y] != null) {
@@ -131,7 +131,7 @@ class King extends chessPiece{
         if(king1) {
           for (int y = this.col - 1; y >= 0; y--) {
             if (y == 0) {
-              //moves.add(""+this.row+y);
+              moves.add(""+this.row+y);
               castle = true;
             }
             if (board[this.row][y] != null) {
@@ -141,7 +141,7 @@ class King extends chessPiece{
         if(king2) {
           for (int y = this.col + 1; y < 8; y++) {
             if (y == 7) {
-              //moves.add(""+this.row+y);
+              moves.add(""+this.row+y);
               castle = true;
             }
             if (board[this.row][y] != null) {
