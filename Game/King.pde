@@ -12,10 +12,10 @@ class King extends chessPiece{
   } 
   ArrayList<String> allowedMoves(chessPiece[][] board) {
     ArrayList<String> moves = new ArrayList<>();
-      if (row - 1 > 0 && board[this.row-1][this.col] == null) {
+      if (row - 1 >= 0 && board[this.row-1][this.col] == null) {
         moves.add(""+(this.row-1)+this.col);
       }
-      else if (row - 1 > 0 && board[this.row-1][this.col].white != this.white) {
+      else if (row - 1 >= 0 && board[this.row-1][this.col].white != this.white) {
           moves.add(""+(this.row-1)+this.col);
         }
     
@@ -30,7 +30,7 @@ class King extends chessPiece{
     if (col - 1 >0 && board[this.row][this.col - 1] == null) {
         moves.add(""+this.row+(this.col-1));
       }
-      else if (col - 1 >0 && board[this.row][this.col - 1].white != this.white) {
+      else if (col - 1 >=0 && board[this.row][this.col - 1].white != this.white) {
           moves.add(""+(this.row)+(this.col - 1));
         }
         
@@ -48,24 +48,24 @@ class King extends chessPiece{
           moves.add(""+(this.row+1)+(this.col + 1));
         }
     
-    if (row - 1 >0 && col-1 >0 &&board[this.row-1][this.col - 1] == null) {
+    if (row - 1 >=0 && col-1 >=0 &&board[this.row-1][this.col - 1] == null) {
         moves.add(""+(this.row-1)+(this.col-1));
       }
-      else if (row - 1 >0 && col-1 >0 && board[this.row-1][this.col - 1].white != this.white) {
+      else if (row - 1 >=0 && col-1 >=0 && board[this.row-1][this.col - 1].white != this.white) {
           moves.add(""+(this.row-1)+(this.col - 1));
         }
     
-    if (row - 1 >0 && col+1 <8 &&board[this.row-1][this.col + 1] == null) {
+    if (row - 1 >=0 && col+1 <8 &&board[this.row-1][this.col + 1] == null) {
         moves.add(""+(this.row-1)+(this.col+1));
       }
-      else if (row - 1 >0 && col+1 <8 &&board[this.row-1][this.col + 1].white != this.white) {
+      else if (row - 1 >=0 && col+1 <8 &&board[this.row-1][this.col + 1].white != this.white) {
           moves.add(""+(this.row-1)+(this.col + 1));
         }
     
-    if (row +1 <8 && col-1 >0 && board[this.row+1][this.col - 1] == null) {
+    if (row +1 <8 && col-1 >=0 && board[this.row+1][this.col - 1] == null) {
         moves.add(""+(this.row+1)+(this.col-1));
       }
-      else if (row +1 <8 && col-1 >0 && board[this.row+1][this.col - 1].white != this.white) {
+      else if (row +1 <8 && col-1 >=0 && board[this.row+1][this.col - 1].white != this.white) {
           moves.add(""+(this.row+1)+(this.col - 1));
         }
         
@@ -73,36 +73,40 @@ class King extends chessPiece{
         boolean king1 = true;
         boolean king2 = true; 
         boolean king3 = true;
-  for (int z = 0; z < history.size(); z++) {
+  //for (int z = 0; z < history.size(); z++) {
+    for (String wop : history) {
+      String[] swish = wop.split(" ");
+      if (swish.length > 0) {
     if (this.white){
-      if (history.get(z).contains("74")) {
+      if (swish[0].equals("74")) {
         king3 = false;
       }
-        if(history.get(z).contains("70")){
+        if(swish[0].equals("70")){
       king1 = false;
     }
-    if(history.get(z).contains("77")){
+    if(swish[0].equals("77")){
       king2 = false;
     }
     
     }
     else {
-      if (history.get(z).contains("04")) {
+      if (swish[0].equals("04")) {
         king3= false;
       }
-        if(history.get(z).contains("00")){
+        if(swish[0].equals("00")){
       king1 = false;
     }
-    if(history.get(z).contains("07")){
+    if(swish[0].equals("07")){
       king2 = false;
     }
     }
   }
+    }
       if (this.white) {
         if (king3) {
         if(king1) {
           for (int y = this.col - 1; y >= 0; y--) {
-            if (y == 0) {
+            if (y == 0 && board[this.row][y] instanceof Rook && board[this.row][y].white == this.white) {
               moves.add(""+this.row+y);
               castle = true;
             }
@@ -113,7 +117,7 @@ class King extends chessPiece{
         }
         if(king2) {
           for (int y = this.col + 1; y < 8; y++) {
-            if (y == 7) {
+            if (y == 7&& board[this.row][y] instanceof Rook && board[this.row][y].white == this.white) {
               moves.add(""+this.row+y);
               castle = true;
             }
@@ -130,7 +134,7 @@ class King extends chessPiece{
         if (king3) {
         if(king1) {
           for (int y = this.col - 1; y >= 0; y--) {
-            if (y == 0) {
+            if (y == 0 && board[this.row][y] instanceof Rook && board[this.row][y].white == this.white) {
               moves.add(""+this.row+y);
               castle = true;
             }
@@ -140,7 +144,7 @@ class King extends chessPiece{
           }
         if(king2) {
           for (int y = this.col + 1; y < 8; y++) {
-            if (y == 7) {
+            if (y == 7 && board[this.row][y] instanceof Rook && board[this.row][y].white == this.white) {
               moves.add(""+this.row+y);
               castle = true;
             }
