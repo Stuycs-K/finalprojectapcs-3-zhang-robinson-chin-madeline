@@ -69,4 +69,8 @@ probably make the move history bar later. Additionally, I identified some
 problem areas with my code regarding castling, and I looked at them more 
 closely when I got home. Then, I finally got castling to work as intended (~45 minutes, not including class time).  
 
-
+### 2025-06-04 - Updated everything and debugged castling.
+In class, I updated the prototype and readme to accurately reflect 
+the current state of our game and roles. At home, Robin pointed out 
+some errors with my castling code and King class in general, so I fixed 
+those mistakes (~1 hour at home).
