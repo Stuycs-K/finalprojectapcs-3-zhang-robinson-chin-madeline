@@ -1,6 +1,7 @@
 class King extends chessPiece{
   boolean castle;
   boolean check = false;
+  boolean hasMoved = false;
   public King(int r, int c, boolean white) {
     super(r,c,white);
     //castle = false;
@@ -27,7 +28,7 @@ class King extends chessPiece{
         }
  
     
-    if (col - 1 >0 && board[this.row][this.col - 1] == null) {
+    if (col - 1 >=0 && board[this.row][this.col - 1] == null) {
         moves.add(""+this.row+(this.col-1));
       }
       else if (col - 1 >=0 && board[this.row][this.col - 1].white != this.white) {
@@ -68,7 +69,7 @@ class King extends chessPiece{
       else if (row +1 <8 && col-1 >=0 && board[this.row+1][this.col - 1].white != this.white) {
           moves.add(""+(this.row+1)+(this.col - 1));
         }
-        
+     /*   
         if (!check){
         boolean king1 = true;
         boolean king2 = true; 
@@ -155,7 +156,33 @@ class King extends chessPiece{
         }
       }
       }
-      }
+      } 
+        }*/
+        if(!this.hasMoved) {
+          for (int y = this.col + 1; y < 8; y++) {
+            if (y == 7 && board[this.row][y] instanceof Rook && board[this.row][y].white == this.white) {
+              Rook tar = (Rook)board[this.row][y];
+              if(!tar.hasMoved){
+              moves.add(""+this.row+y);
+              castle = true;
+            }
+            }
+            if (board[this.row][y] != null) {
+              break;
+            }
+        }
+          for (int y = this.col - 1; y >= 0; y--) {
+            if (y == 0 && board[this.row][y] instanceof Rook && board[this.row][y].white == this.white) {
+              Rook tar = (Rook)board[this.row][y];
+              if(!tar.hasMoved){
+              moves.add(""+this.row+y);
+              castle = true;
+            }
+            }
+            if (board[this.row][y] != null) {
+              break;
+            }
+          }
         }
       
       if (check) {
@@ -183,6 +210,7 @@ class King extends chessPiece{
      }
      return moves1;
   }
+        
   
   boolean checked(chessPiece[][] board, int r, int c) {
     for (int y = 0; y < 8; y++) {
@@ -199,5 +227,10 @@ class King extends chessPiece{
       }
     }
     return false;
+  }
+  
+  void move(chessPiece[][] board, int r, int c){
+    super.move(board,r,c);
+    hasMoved = true;
   }
 }

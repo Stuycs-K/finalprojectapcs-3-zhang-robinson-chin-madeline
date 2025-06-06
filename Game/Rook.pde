@@ -1,4 +1,5 @@
-class Rook extends chessPiece{
+class Rook extends chessPiece {
+  boolean hasMoved = false;
   public Rook(int r, int c, boolean white) {
     super(r,c,white);
   }
@@ -55,5 +56,10 @@ class Rook extends chessPiece{
       }
     }
     return moves;
+  }
+  
+void move(chessPiece[][] board, int r, int c){
+    super.move(board,r,c);
+    hasMoved = true;
   }
 }
