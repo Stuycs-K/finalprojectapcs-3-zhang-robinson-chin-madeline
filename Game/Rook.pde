@@ -14,7 +14,7 @@ class Rook extends chessPiece{
         moves.add(""+y+this.col);
       }
       else {
-        if (board[y][this.col].white != this.white && !(board[y][this.col] instanceof King)) {
+        if (board[y][this.col].white != this.white) {
           moves.add(""+y+this.col);
         }
         break;
@@ -48,7 +48,7 @@ class Rook extends chessPiece{
         moves.add(""+this.row+y);
       }
       else {
-        if (board[this.row][y].white != this.white && !(board[y][this.col] instanceof King)) {
+        if (board[this.row][y].white != this.white ) {
           moves.add(""+this.row+y);
         }
         break;

@@ -188,6 +188,7 @@ void highlightSelectedPiece(){
 }
 void draw() {
   background(200);
+  historyLog();
   display();
   highlightSelectedPiece();
   highlightMoves();
@@ -240,6 +241,20 @@ boolean checkmate (boolean chessColor){
   return true;
 }
 
+void historyLog(){
+  fill (240);
+  rect(1000,0,300,1000);
+  fill(0);
+  textSize(24);
+  textAlign(LEFT,TOP);
+  text("Move log",1020,20);
+  textSize(10);
+  int show = 36;
+  int start=max(0,history.size()-show);
+  for(int i = start;i<history.size();i++){
+    text(history.get(i),1000,60+(i-start)*25);
+  }
+}
 boolean stalemate (boolean chessColor){
   if (check(chessColor)){
     return false;
