@@ -6,7 +6,7 @@ wQueen, bQueen, wKing, bKing;
 static Pawn lastDoubleStep=null;
 ArrayList<String> highlightSquares=new ArrayList<String>();
 void setup() {
-  size(1000,1000);
+  size(1300,1000);
   loadImgs();
   board = new chessPiece[8][8];
   //history = new ArrayList<>();
@@ -313,7 +313,31 @@ boolean checkmate (boolean chessColor){
   }
   return true;
 }
+String col(int col){
+  return ""+(char)('a'+col);
+}
+String row(int row){
+  return ""+(8-row);
+}
 
+String pieceLetter(chessPiece p){
+  String name = p.getPiece();
+  if (name.equals("Knight")){
+    return "N";
+  }
+    if (name.equals("King")){
+    return "K";
+  }
+    if (name.equals("Queen")){
+    return "Q";
+  }
+    if (name.equals("Rook")){
+    return "R";
+  }  if (name.equals("Bishop")){
+    return "B";
+  }
+  return "";
+}
 void historyLog(){
   fill (240);
   rect(1000,0,300,1000);
