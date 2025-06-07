@@ -19,3 +19,6 @@ At home I worked on the Bishop class for around 40 minutes then around an hour t
 
 2025-05-30 to 06-02 (6 hours)
 On friday in class me and Maddie discussed what we had to do while fixing some errors and bugs in the code. (~ 30 minutes). Was not able to work on Saturday due to a personal situation. Sunday slept in and started working on the first iteration of the pawn enpassant and capture (~1.5 hours). I got the pawn captureing to work (~30 minutes) and enpassant to work (~1 hour). Then I focused on my pawn promotion, at first the logic was correct but the board didn't update so I changed the method. (~1 hour) Then I realized the problem was in the game file so I started to work my way through the code eventually finding the source of the bug and fixing it (~1 hour). Then I picked up where Maddie left off and worked on the Checkmate and stalemate methods completing both. (~1.5 hours)
+
+2025-06-03 (2 hour)
+In class me and Maddie talked about what other features we had left to do, Maddie with the castling and boards, and me with the enpassant. Afterwards I went suit shoping so returned late, but when I did I worked on enpassant for around an hour and a half, it has yet to bare any fruit. So, I switched over to debugging the pieces eating the king which took half an hour. I commited in the morning. 
