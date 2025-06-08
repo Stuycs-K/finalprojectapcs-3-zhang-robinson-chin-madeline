@@ -3,8 +3,8 @@ class Bishop extends chessPiece{
     super(r,c,white);
   }
   void move(chessPiece[][] board,int r, int c){
-    super.move(board,r,c);
     boolean isCapture = (board[r][c]!=null);
+    super.move(board,r,c);
     moveLog(this,row,col,r,c,isCapture,false,false,false);
     
   }

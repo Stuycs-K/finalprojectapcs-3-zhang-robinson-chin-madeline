@@ -61,7 +61,7 @@ void move(chessPiece[][] board, int r, int c) {
   //  if ((""+this.row+this.col).equals(moves.get(y))) {
     if (moves.contains(""+r+c)) {
        
-    history.add(""+this.row+this.col+" to " +r+c);
+    //history.add(""+this.row+this.col+" to " +r+c);
       board[r][c] = this;
       board[this.row][this.col] = null;
       row = r;

@@ -1,5 +1,6 @@
 class Pawn extends chessPiece{
   boolean hasMove = false;
+  boolean ep = false;
   
   Pawn(int r, int c, boolean white){
    super(r,c,white);
@@ -49,19 +50,22 @@ class Pawn extends chessPiece{
   
   
   void move(chessPiece[][] board, int r, int c){
+    ep = false;
     boolean isCapture = (Math.abs(c-col)==1 && 
     (board[r][c]!=null || 
     (board[row][c] instanceof Pawn && 
     board[r][c]==null)));
     boolean promotion = ((white && r==0)|| (!white&& r ==7));
-    moveLog(this, row,col,r,c,isCapture,promotion,false,false);
+    //moveLog(this, row,col,r,c,isCapture,promotion,false,false);
     if (Math.abs(c-col)==1&&board[r][c]==null
   /*  && board[row][c]!=null*/
     && board[row][c] instanceof Pawn){
       println("b");
+      ep = true;
       board[row][c]=null;
     }
     int oldRow = row;
+    int oldCol = col;
     board[row][col] = null;
     board[r][c] = this;
     this.row = r;
@@ -77,6 +81,7 @@ class Pawn extends chessPiece{
    if ((white&&row==0) || (!white && row ==7)){
       board[row][col]=new Queen(row,col,white);
     }
+    moveLog(this, oldRow,oldCol,r,c,isCapture,promotion,false,false);
   }
   
   boolean inBounds(int r, int c){

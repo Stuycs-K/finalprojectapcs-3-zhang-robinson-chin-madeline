@@ -232,7 +232,7 @@ void mousePressed() {
       }
     }
     if (moves.contains(""+row+col)) {
-      
+     
     /*  board[row][col] = hold;
       board[hold.row][hold.col] = null;
       hold.row = row; 
@@ -380,8 +380,13 @@ else{
   String piece = pieceLetter(p);
   if (piece.equals("")){
     if(capture){
+      if (p instanceof Pawn && ((Pawn)p).ep) {
+        move += col(initialC)+ "x" + col(toC) + row(toR) +" e.p.";
+      }
+      else {
       move += col(initialC)+ "x";
       move += col(toC)+row(toR);
+      }
     }else{
       move += col(toC)+row(toR);
     }
@@ -392,7 +397,13 @@ else{
     if(capture)move+="x";
     move+=col(toC)+row(toR);
   }
-}
+}/*
+if (p instanceof Pawn) {
+  Pawn pi = (Pawn) p;
+  if (pi.ep) {
+  move+=" e.p.";
+  }
+}*/
 if (!p.white)move = "... " + move;
 history.add(move);
 }
