@@ -239,4 +239,4 @@ class King extends chessPiece{
     super.move(board,r,c);
     hasMoved = true;
   }
-}
+} 
