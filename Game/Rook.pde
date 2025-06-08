@@ -59,7 +59,10 @@ class Rook extends chessPiece {
   }
   
 void move(chessPiece[][] board, int r, int c){
+    boolean isCapture = (board[r][c]!=null);
+    moveLog(this,row,col,r,c,isCapture,false,false,false);
     super.move(board,r,c);
     hasMoved = true;
   }
-}
+}  
+  

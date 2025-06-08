@@ -7,6 +7,14 @@ class Queen extends chessPiece{
     return "Queen"; 
   } 
   
+  void move(chessPiece[][] board,int r, int c){
+    super.move(board,r,c);
+    boolean isCapture = (board[r][c]!=null);
+    moveLog(this,row,col,r,c,isCapture,false,false,false);
+    
+  }
+  
+  
   ArrayList<String> allowedMoves(chessPiece[][] board) {
     ArrayList<String> moves = new ArrayList<>();
     for (int y = this.row - 1; y >= 0; y--) {
