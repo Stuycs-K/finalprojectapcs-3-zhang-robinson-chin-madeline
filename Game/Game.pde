@@ -373,6 +373,8 @@ else{
     if(capture){
       move += col(initialC)+ "x";
       move += col(toC)+row(toR);
+    }else{
+      move += col(toC)+row(toR);
     }
   if(promotion) move += "=Q";
   }
