@@ -48,7 +48,10 @@ class Pawn extends chessPiece{
   
   
   void move(chessPiece[][] board, int r, int c){
-    boolean isCapture = (Math.abs(c-col)==1 && (board[r][c]!=null || (board[row][c] instanceof Pawn && board[r][c]==null)));
+    boolean isCapture = (Math.abs(c-col)==1 && 
+    (board[r][c]!=null || 
+    (board[row][c] instanceof Pawn && 
+    board[r][c]==null)));
     boolean promotion = ((white && r==0)|| (!white&& r ==7));
     moveLog(this, row,col,r,c,isCapture,promotion,false,false);
     if (Math.abs(c-col)==1&&board[r][c]==null

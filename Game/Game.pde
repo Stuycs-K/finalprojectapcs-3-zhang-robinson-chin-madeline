@@ -369,16 +369,18 @@ else if (castleQueen){
 }
 else{
   String piece = pieceLetter(p);
-  if (piece.equals("") && capture){
-    move += col(initialC);
-    move += piece;
-  }
-  if (capture){
-    move += "x";
-    move += col(toC)+row(toR);
-  }
-  
+  if (piece.equals("")){
+    if(capture){
+      move += col(initialC)+ "x";
+      move += col(toC)+row(toR);
+    }
   if(promotion) move += "=Q";
+  }
+  else {
+    move+=piece;
+    if(capture)move+="x";
+    move+=col(toC)+row(toR);
+  }
 }
 if (!p.white)move = "... " + move;
 history.add(move);
