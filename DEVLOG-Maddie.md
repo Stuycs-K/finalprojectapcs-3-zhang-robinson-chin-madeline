@@ -73,4 +73,14 @@ closely when I got home. Then, I finally got castling to work as intended (~45 m
 In class, I updated the prototype and readme to accurately reflect 
 the current state of our game and roles. At home, Robin pointed out 
 some errors with my castling code and King class in general, so I fixed 
-those mistakes (~1 hour at home).
+those mistakes (~1 hour at home).  
+
+### 2025-06-06 (+ weekend) - En passant, preset boards, move log.
+In class, (no Robbby tdy) I worked on debugging the code and changing 
+the castling mechanic to utilize boolean flags for if the pieces had 
+moved. I also added some of the preset boards. 
+At home, I finished up en passant and made sure it worked correctly, added 
+a small section on the screen to list what keys trigger what boards, fixed the move log 
+so it didn't display any numbers or skip moves or list random 
+captures, and added en passant notation to the move log (~2.5 hours).  
+

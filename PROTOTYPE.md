@@ -74,7 +74,7 @@ Robinson:
    - ~~Setup a 8 by 8 board as a 2D array~~ (maddie stole it)
    - Import all images
    - ~~Work on abstract Piece class~~ (mostly maddie)
-	 - History bar
+	 - ~~History bar~~ (shared)
 
 3. Pawn
    - One space forward
@@ -130,7 +130,7 @@ Shared:
   - Add comments throughout the coding process
 	- Make preset boards
   - Prepare demo and walk-through for presentation
-  - ~~History bar~~ (robby has to do this now)
+  - History bar ~~(robby has to do this now)~~ (we're share it again)
 
 A timeline with expected completion dates of parts of the project:
 
