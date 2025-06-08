@@ -230,6 +230,12 @@ class King extends chessPiece{
   }
   
   void move(chessPiece[][] board, int r, int c){
+    boolean isCastleKing=(col==4&&c==6);
+    boolean isCastleQueen = (col==5 && c==2);
+    boolean isCapture= board[r][c]!=null;
+    
+    moveLog(this,row,col,r,c,isCapture,false,isCastleKing,isCastleQueen);
+    
     super.move(board,r,c);
     hasMoved = true;
   }
