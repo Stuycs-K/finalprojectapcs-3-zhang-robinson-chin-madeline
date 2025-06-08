@@ -6,7 +6,7 @@ wQueen, bQueen, wKing, bKing;
 static Pawn lastDoubleStep=null;
 ArrayList<String> highlightSquares=new ArrayList<String>();
 void setup() {
-  size(1300,1000);
+  size(1300,1070);
   loadImgs();
   board = new chessPiece[8][8];
   //history = new ArrayList<>();
@@ -269,6 +269,12 @@ void draw() {
   highlightMoves();
   putP();
   historyLog();
+  textSize(20);
+  fill(0);
+  text("Board Presets:",20,1010);
+  textSize(18);
+  text("c/C - castling",25,1030);
+  text("p/P - pawn promotion",25,1050);
 }
 
 boolean check(boolean turn) {
