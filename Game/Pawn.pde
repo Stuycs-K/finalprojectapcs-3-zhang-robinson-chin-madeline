@@ -62,6 +62,10 @@ class Pawn extends chessPiece{
       board[row][c]=null;
     }
     int oldRow = row;
+    board[row][col] = null;
+    board[r][c] = this;
+    this.row = r;
+    this.col = c;
     super.move(board,r,c);
     hasMove=true;
     if (Math.abs(r-oldRow)==2){
