@@ -209,6 +209,9 @@ chessPiece hold = null;
 void mousePressed() {
   int row = mouseY / 125;
   int col = mouseX / 125;
+  if (row<0||row>7||col<0||col>7){
+    return;
+  }
   if (hold == null) {
     chessPiece piece = board[row][col];
     if (piece!=null&& piece.white == turn){
@@ -261,11 +264,11 @@ void highlightSelectedPiece(){
 }
 void draw() {
   background(200);
-  historyLog();
   display();
   highlightSelectedPiece();
   highlightMoves();
   putP();
+  historyLog();
 }
 
 boolean check(boolean turn) {
@@ -345,13 +348,43 @@ void historyLog(){
   textSize(24);
   textAlign(LEFT,TOP);
   text("Move log",1020,20);
-  textSize(10);
+  textSize(16);
   int show = 36;
   int start=max(0,history.size()-show);
   for(int i = start;i<history.size();i++){
-    text(history.get(i),1000,60+(i-start)*25);
+    int number = i/2+1;
+    String initial = history.get(i);
+    String display = (i%2==0 ? number + ". " : "") + initial;
+    text(display,1020,60+(i-start)*28);
   }
 }
+
+void moveLog(chessPiece p,int initialR, int initialC, int toR, int toC, boolean capture, boolean promotion, boolean castleKing, boolean castleQueen){
+String move = "";
+if (castleKing){
+  move="0-0";
+}
+else if (castleQueen){
+  move = "0-0-0";
+}
+else{
+  String piece = pieceLetter(p);
+  if (piece.equals("") && capture){
+    move += col(initialC);
+    move += piece;
+  }
+  if (capture){
+    move += "x";
+    move += col(toC)+row(toR);
+  }
+  
+  if(promotion) move += "=Q";
+}
+if (!p.white)move = "... " + move;
+history.add(move);
+}
+
+
 boolean stalemate (boolean chessColor){
   if (check(chessColor)){
     return false;
