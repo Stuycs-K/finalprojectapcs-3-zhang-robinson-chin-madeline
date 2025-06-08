@@ -130,7 +130,7 @@ Shared:
   - Add comments throughout the coding process
 	- Make preset boards
   - Prepare demo and walk-through for presentation
-  - History bar ~~(robby has to do this now)~~ (we're share it again)
+  - History bar ~~(robby has to do this now)~~ (we share it again)
 
 A timeline with expected completion dates of parts of the project:
 
