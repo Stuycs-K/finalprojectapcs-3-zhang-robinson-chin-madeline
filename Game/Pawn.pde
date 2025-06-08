@@ -35,10 +35,11 @@ class Pawn extends chessPiece{
           moves.add(""+y+x);
         }
         if(board[y][x]==null&&
-        board[row][x]!=null&&
+        /*board[row][x]!=null&&*/
         board[row][x] instanceof Pawn&&
-        board[row][x]==Game.lastDoubleStep&&
+        board[row][x]==lastDoubleStep&&
         ((white && row ==3)|| (!white && row ==4))){
+          println("a");
           moves.add(""+y+x);
           }
         }
@@ -55,22 +56,22 @@ class Pawn extends chessPiece{
     boolean promotion = ((white && r==0)|| (!white&& r ==7));
     moveLog(this, row,col,r,c,isCapture,promotion,false,false);
     if (Math.abs(c-col)==1&&board[r][c]==null
-    && board[row][c]!=null
+  /*  && board[row][c]!=null*/
     && board[row][c] instanceof Pawn){
+      println("b");
       board[row][c]=null;
     }
     int oldRow = row;
     super.move(board,r,c);
     hasMove=true;
-    
-    if ((white&&row==0) || (!white && row ==7)){
-      board[row][col]=new Queen(row,col,white);
-    }
-    if (Math.abs(row-(white ? r+1:r-1))==2){
-      Game.lastDoubleStep=this;
+    if (Math.abs(r-oldRow)==2){
+      lastDoubleStep=this;
     }
     else{
-      Game.lastDoubleStep=null;
+      lastDoubleStep=null;
+    }
+   if ((white&&row==0) || (!white && row ==7)){
+      board[row][col]=new Queen(row,col,white);
     }
   }
   

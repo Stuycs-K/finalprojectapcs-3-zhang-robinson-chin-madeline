@@ -3,7 +3,7 @@ ArrayList<String> history;
 boolean turn;
 PImage wPawn, bPawn, wRook, bRook, wKnight, bKnight, wBishop, bBishop,
 wQueen, bQueen, wKing, bKing;
-static Pawn lastDoubleStep=null;
+public static Pawn lastDoubleStep=null;
 ArrayList<String> highlightSquares=new ArrayList<String>();
 void setup() {
   size(1300,1070);
@@ -233,12 +233,15 @@ void mousePressed() {
     }
     if (moves.contains(""+row+col)) {
       
-      board[row][col] = hold;
+    /*  board[row][col] = hold;
       board[hold.row][hold.col] = null;
       hold.row = row; 
       hold.col = col;
-      //hold = null;
+      //hold = null; */
       hold.move(board,row,col);
+      if (hold instanceof Pawn && Math.abs(hold.row - row) == 2) {
+        lastDoubleStep=null;
+      }
       turn = !turn;
     }
     hold = null;
