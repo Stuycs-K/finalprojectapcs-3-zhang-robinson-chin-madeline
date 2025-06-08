@@ -2,6 +2,12 @@ class Bishop extends chessPiece{
     Bishop(int r, int c, boolean white){
     super(r,c,white);
   }
+  void move(chessPiece[][] board,int r, int c){
+    super.move(board,r,c);
+    boolean isCapture = (board[r][c]!=null);
+    moveLog(this,row,col,r,c,isCapture,false,false,false);
+    
+  }
   
   String getPiece(){
     return "Bishop"; 
