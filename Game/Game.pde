@@ -362,10 +362,10 @@ void historyLog(){
 void moveLog(chessPiece p,int initialR, int initialC, int toR, int toC, boolean capture, boolean promotion, boolean castleKing, boolean castleQueen){
 String move = "";
 if (castleKing){
-  move="0-0";
+  move="O-O";
 }
 else if (castleQueen){
-  move = "0-0-0";
+  move = "O-O-O";
 }
 else{
   String piece = pieceLetter(p);
