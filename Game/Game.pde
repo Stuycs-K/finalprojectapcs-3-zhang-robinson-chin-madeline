@@ -505,7 +505,7 @@ void historyLog(){
   textAlign(LEFT,TOP);
   text("Move log",1020,20);
   textSize(16);
-  int show = 36;
+  int show = 30;
   int start=max(0,history.size()-show);
   for(int i = start;i<history.size();i++){
     int number = i/2+1;
