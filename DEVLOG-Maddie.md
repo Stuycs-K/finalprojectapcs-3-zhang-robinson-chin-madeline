@@ -85,3 +85,5 @@ so it didn't display any numbers or skip moves or list random
 captures, and added en passant notation to the move log (~2.5 hours). I also 
 did some minor debugging and helped record the demo video.    
 
+I believe this document accurately reflects the contributions of my teammate.
+
