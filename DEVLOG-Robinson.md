@@ -23,4 +23,19 @@ On friday in class me and Maddie discussed what we had to do while fixing some e
 2025-06-03 (2 hour)
 In class me and Maddie talked about what other features we had left to do, Maddie with the castling and boards, and me with the enpassant. Afterwards I went suit shoping so returned late, but when I did I worked on enpassant for around an hour and a half, it has yet to bare any fruit. So, I switched over to debugging the pieces eating the king which took half an hour. I commited in the morning. 
 
+2025-06-04 (1 hour)
+Just did some basic debugging with pawn again, trying to get enpassant to work, gave up and asked Maddie if she wanted to trade methods, she agreed. Focused on highlighting the available moves suggested by Mr.Konstantinovich for easier debugging. 
+
+2025-06-06 (1 hour)
+Worked on the movelog on the side of the code, felt sick didn't go to school. Commited Saturday morning.
+
+2025-06-07 (3 hours)
+Overall debugging day, focued on making the movelog more readable, added methods to convert to algebraic notation, and just making sure all the piece's moved and their notation was correct.
+
+2025-06-08 (6 hours)
+Another day of debugging, there was an issue with check and available moves, added a legal move method to filter out the possible moves from the valid ones, took a majourity of my time as I kept getting Stackoverflow errors. (I blame Maddie's thousands of if statments). Ended the day by cleaning up Maddie's Queen class. 
+
+2025-06-09 (3 hours)
+The day of the presentation. Stayed up to study for finals, debugged a bit. There was a bug where castling displayed a king capture and the type of castling, added a reset button for easier debugging, and a random println"a" within the code. Took a nap then came back and fixed a problem with checkmate not being ran correctly.
+
 I believe this document accurately reflects the contributions of my teamate. :)
