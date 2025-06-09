@@ -199,6 +199,37 @@ if (key == 'p' || key == 'P') {
   history = new ArrayList<String>();
   turn = true;
 }
+
+if (key == 's' || key == 'S') {
+      loadImgs();
+  board = new chessPiece[8][8];
+  //history = new ArrayList<>();
+  
+  board[0][0] = new King (0,0,false);
+  board[1][5] = new Queen(1,5,true);
+  board[4][2] = new King (4,2,true);
+
+  history = new ArrayList<String>();
+  turn = true;
+}
+
+if (key == 'x' || key == 'X') {
+      loadImgs();
+  board = new chessPiece[8][8];
+  board[0][6] = new King(0,6,false);
+  board[0][5] = new Rook(0,5,false);
+  board[1][5] = new Pawn(1,5,false);
+  board[1][7] = new Pawn(1,7,false);
+  
+  board[6][1] = new Bishop(6,1,true);
+  board[7][5] = new Rook(7,6,true);
+  board[7][7] = new King(7,7,true);
+
+
+
+  history = new ArrayList<String>();
+  turn = true;
+}
 }
 
 void display() {
@@ -278,6 +309,8 @@ void draw() {
   textSize(18);
   text("c/C - castling",25,1030);
   text("p/P - pawn promotion",25,1050);
+  text("s/S - stalemate",250,1030);
+  text("x/X - checkmate",250,1050);
 }
 
 boolean check(boolean turn) {
