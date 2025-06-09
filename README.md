@@ -5,4 +5,10 @@
 
 # Intended usage:
 
-Background is the standard 8x8 checkered board and graphics for pieces. There will be a prompt for the input of algebraic chess notation to move the pieces, with a running record of the moves made during the game. The main purpose of the game is to be fun and easily used. Click on a piece to see its possible moves, including pawn captures and castling. Pawns promote to Queens and the game ends in either a checkmate or stalemate. There is also a running log of previously made moves on the side.   
+Background is the standard 8x8 checkered board and graphics for pieces. 
+Moves will be handled by mouse-clicking the desired piece and destination, 
+with a running record of the moves made during the game displayed on the right side. 
+The main purpose of the game is to be fun and easily used. Click on a piece to see its possible moves, 
+including pawn captures and castling. Pawns promote to Queens and the game ends in either a checkmate or stalemate. 
+Keys c/C set the board up for castling, 
+p/P for pawn promotion, s/S for stalemate, and x/X for checkmate.   
