@@ -218,6 +218,14 @@ class King extends chessPiece{
       for (int z = 0; z < 8; z++) {
         chessPiece emmy= board[y][z];
         if (emmy != null && emmy.white != this.white) {
+          if(emmy instanceof Pawn){
+            int dir = emmy.white ? -1:1;
+            if(emmy.row+dir==r&& (emmy.col-1==c || emmy.col +1==c)){
+              return true;
+            }
+            continue;
+          }
+          
           int originalRow=this.row;
           int originalCol = this.col;
           chessPiece original = board[r][c];
