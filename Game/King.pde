@@ -213,26 +213,31 @@ class King extends chessPiece{
         
   
   boolean checked(chessPiece[][] board, int r, int c) {
-    boolean prevSafe = Game.kingSafe;
-    boolean prevCheck=this.check;
     
     for (int y = 0; y < 8; y++) {
       for (int z = 0; z < 8; z++) {
         chessPiece emmy= board[y][z];
         if (emmy != null && emmy.white != this.white) {
-          Game.kingSafe = false;
-          this.check=true;
+          int originalRow=this.row;
+          int originalCol = this.col;
+          chessPiece original = board[r][c];
+          board[r][c]=this;
+          board[originalRow][originalCol]=null;
+          this.row=r;
+          this.col=c;
           ArrayList<String> movess = emmy.allowedMoves(board);
-          Game.kingSafe = prevSafe;
-          this.check = prevCheck;
+          
+          board[r][c]=original;
+          board[originalRow][originalCol]=this;
+          this.row=originalRow;
+          this.col=originalCol;
+          
           if (movess.contains(""+r+c)) {
             return true;
           }
         }
       }
     }
-    Game.kingSafe=prevSafe;
-    this.check=prevCheck;
     return false;
   }
   
