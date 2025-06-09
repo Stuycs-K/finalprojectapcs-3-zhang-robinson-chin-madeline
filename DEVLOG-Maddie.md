@@ -82,5 +82,6 @@ moved. I also added some of the preset boards.
 At home, I finished up en passant and made sure it worked correctly, added 
 a small section on the screen to list what keys trigger what boards, fixed the move log 
 so it didn't display any numbers or skip moves or list random 
-captures, and added en passant notation to the move log (~2.5 hours).  
+captures, and added en passant notation to the move log (~2.5 hours). I also 
+did some minor debugging and helped record the demo video.    
 
