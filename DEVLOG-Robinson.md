@@ -22,3 +22,5 @@ On friday in class me and Maddie discussed what we had to do while fixing some e
 
 2025-06-03 (2 hour)
 In class me and Maddie talked about what other features we had left to do, Maddie with the castling and boards, and me with the enpassant. Afterwards I went suit shoping so returned late, but when I did I worked on enpassant for around an hour and a half, it has yet to bare any fruit. So, I switched over to debugging the pieces eating the king which took half an hour. I commited in the morning. 
+
+I believe this document accurately reflects the contributions of my teamate. :)
