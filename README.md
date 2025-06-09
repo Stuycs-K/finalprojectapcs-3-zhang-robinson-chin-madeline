@@ -12,3 +12,7 @@ The main purpose of the game is to be fun and easily used. Click on a piece to s
 including pawn captures and castling. Pawns promote to Queens and the game ends in either a checkmate or stalemate. 
 Keys c/C set the board up for castling, 
 p/P for pawn promotion, s/S for stalemate, and x/X for checkmate.   
+
+
+Youtube video describing the lab
+https://youtu.be/mrL-st1UlWU
