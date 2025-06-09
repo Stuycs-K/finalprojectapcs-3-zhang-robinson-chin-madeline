@@ -269,8 +269,22 @@ void checkEndGame(){
     gameOverMessage="Stalemate! It's a draw.";
   }
 }
+
+void restartGame(){
+  setup();
+  hold=null;
+  highlightSquares.clear();
+  gameOver=false;
+  gameOverMessage="";
+}
+
 chessPiece hold = null;
 void mousePressed() {
+  if(mouseX>=1120&&mouseX<=1270&& mouseY>=1020&&mouseY<=1170){
+    restartGame();
+    return;
+  }
+  
   int row = mouseY / 125;
   int col = mouseX / 125;
   if (row<0||row>7||col<0||col>7){
@@ -362,18 +376,6 @@ void draw() {
   textSize(18);
   text("c/C - castling",25,1030);
   text("p/P - pawn promotion",25,1050);
-  kingIsInCheck=null;
-  if(check(!turn)){
-    for(int i = 0;i<8;i++){
-      for(int j = 0; j<8;j++){
-        chessPiece p = board[i][j];
-        if(p instanceof King && p.white == !turn){
-          kingIsInCheck=new int[]{i,j};
-        }
-      }
-    }
-  }
-  
   text("s/S - stalemate",250,1030);
   text("x/X - checkmate",250,1050);
   if(gameOver){
@@ -382,6 +384,14 @@ void draw() {
     textAlign(CENTER,CENTER);
     text(gameOverMessage,width/2,height-40);
   }
+  
+  fill(180);
+  stroke(0);
+  rect(1120,1020,150,30);
+  fill(0);
+  textAlign(CENTER,CENTER);
+  textSize(16);
+  text("Restart",1195,1035);
 }
 
 void highlightCheck(){
