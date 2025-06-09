@@ -40,7 +40,6 @@ class Pawn extends chessPiece{
         board[row][x] instanceof Pawn&&
         board[row][x]==lastDoubleStep)
        {
-          println("a");
           moves.add(""+y+x);
           }
         }
