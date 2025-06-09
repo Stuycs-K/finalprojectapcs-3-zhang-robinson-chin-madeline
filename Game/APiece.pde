@@ -23,6 +23,49 @@ boolean checkSq(chessPiece[][] board, int r, int c) {
 
 abstract ArrayList<String> allowedMoves(chessPiece[][] board);
 
+boolean kingInCheck(chessPiece[][] board, boolean white){
+  for(int r = 0; r<8; r++){
+    for(int c =0; c<8;c++){
+      chessPiece p = board[r][c];
+      if(p!=null && p instanceof King && p.white==white){
+        King k = (King)p;
+        return k.checked(board,k.row,k.col);
+      }
+    }
+  }
+  return false;
+}
+
+ArrayList<String> filterIllegalMoves(ArrayList<String>moves,chessPiece[][]board){
+  if(!kingSafe){
+    return moves;
+  }
+  ArrayList<String> legalMoves=new ArrayList<>();
+  int oldRow = this.row;
+  int oldCol = this.col;
+  
+  for(String move:moves){
+    int newRow = Integer.parseInt(move.substring(0,1));
+    int newCol = Integer.parseInt(move.substring(1,2));
+    chessPiece target=board[newRow][newCol];
+    
+    board[newRow][newCol]=this;
+    board[oldRow][oldCol]=null;
+    this.row=newRow;
+    this.col=newCol;
+    
+    kingSafe=false;
+    if(!kingInCheck(board,this.white)){
+      legalMoves.add(move);
+    }
+    kingSafe=true;
+    board[newRow][newCol]=target;
+    board[oldRow][oldCol]=this;
+    this.row=oldRow;
+    this.col=oldCol;
+  }
+  return legalMoves;
+}
 
 void move(chessPiece[][] board, int r, int c) {
   ArrayList<String> moves = this.allowedMoves(board);

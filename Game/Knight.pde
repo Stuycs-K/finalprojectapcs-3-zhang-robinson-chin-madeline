@@ -31,7 +31,7 @@ class Knight extends chessPiece{
         }
       }
     }
-    return moves;
+    return filterIllegalMoves(moves,board);
   }
   
   boolean inBounds(int r, int c){

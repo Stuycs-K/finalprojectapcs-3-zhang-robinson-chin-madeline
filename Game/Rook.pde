@@ -55,7 +55,7 @@ class Rook extends chessPiece {
         break;
       }
     }
-    return moves;
+    return filterIllegalMoves(moves,board);
   }
   
 void move(chessPiece[][] board, int r, int c){

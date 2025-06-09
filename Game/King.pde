@@ -218,7 +218,9 @@ class King extends chessPiece{
         chessPiece emmy= board[y][z];
         if (emmy != null && emmy.white != this.white) {
           check = true;
+          Game.kingSafe = false;
           ArrayList<String> movess = emmy.allowedMoves(board);
+          Game.kingSafe = false;
           check = false;
           if (movess.contains(""+r+c)) {
             return true;

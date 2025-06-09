@@ -37,7 +37,7 @@ class Bishop extends chessPiece{
           newCol+=direction[1];
         }
       }
-      return moves;
+      return filterIllegalMoves(moves,board);
     }
   
   boolean inBounds(int r, int c){

@@ -4,6 +4,9 @@ boolean turn;
 PImage wPawn, bPawn, wRook, bRook, wKnight, bKnight, wBishop, bBishop,
 wQueen, bQueen, wKing, bKing;
 public static Pawn lastDoubleStep=null;
+static boolean kingSafe=true;
+int[] kingIsInCheck=null;
+
 ArrayList<String> highlightSquares=new ArrayList<String>();
 void setup() {
   size(1300,1070);
@@ -270,6 +273,7 @@ void draw() {
   display();
   highlightSelectedPiece();
   highlightMoves();
+  highlightCheck();
   putP();
   historyLog();
   textSize(20);
@@ -278,8 +282,25 @@ void draw() {
   textSize(18);
   text("c/C - castling",25,1030);
   text("p/P - pawn promotion",25,1050);
+  kingIsInCheck=null;
+  if(check(!turn)){
+    for(int i = 0;i<8;i++){
+      for(int j = 0; j<8;j++){
+        chessPiece p = board[i][j];
+        if(p instanceof King && p.white == !turn){
+          kingIsInCheck=new int[]{i,j};
+        }
+      }
+    }
+  }
 }
 
+void highlightCheck(){
+  if(kingIsInCheck !=null){
+    fill(255,0,0,100);
+    rect(kingIsInCheck[1]*125,kingIsInCheck[0]*125,125,125);
+  }
+}
 boolean check(boolean turn) {
   int row = -1;
   int col = -1;
@@ -298,8 +319,12 @@ boolean check(boolean turn) {
   }
   for (int y = 0; y < 8; y++) {
     for (int z = 0; z < 8; z++) {
-      if (board[y][z] != null && board[y][z].white != board[row][col].white) {
-        if (board[y][z].allowedMoves(board).contains(""+row+col)) {
+      if (board[y][z] != null && board[y][z].white != turn) {
+        chessPiece attacker = board[y][z];
+        Game.kingSafe=false;
+        ArrayList<String> moves = attacker.allowedMoves(board);
+        Game.kingSafe=true;
+        if (moves.contains("" +row+col)){
           return true;
         }
       }

@@ -32,20 +32,20 @@ class Pawn extends chessPiece{
       int x=col +dx;
       int y = row+ dir;
       if (inBounds(y,x)){
-        if(board[y][x]!=null&& board[y][x].white!=white&& !(board[y][x] instanceof King)){
-          moves.add(""+y+x);
+        if(board[y][x]!=null&& board[y][x].white!=white){
+          moves.add(""+ y+x);
         }
         if(board[y][x]==null&&
         /*board[row][x]!=null&&*/
         board[row][x] instanceof Pawn&&
-        board[row][x]==lastDoubleStep&&
-        ((white && row ==3)|| (!white && row ==4))){
+        board[row][x]==lastDoubleStep)
+       {
           println("a");
           moves.add(""+y+x);
           }
         }
       }
-    return moves;
+    return filterIllegalMoves(moves,board);
   }
   
   
