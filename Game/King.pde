@@ -242,8 +242,8 @@ class King extends chessPiece{
           
           if (movess.contains(""+r+c)) {
             return true;
-          }
-        }
+           }
+        } 
       }
     }
     return false;
