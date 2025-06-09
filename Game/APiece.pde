@@ -74,7 +74,7 @@ void move(chessPiece[][] board, int r, int c) {
       King ur = (King)this;
       if (ur.castle) {
       if (c == 0) {
-        history.add(""+this.row+this.col+" castles " +r+c);
+        history.add("O-O");
       board[r][2] = this;
        board[r][3] = hold;
       board[this.row][this.col] = null;
@@ -87,7 +87,7 @@ void move(chessPiece[][] board, int r, int c) {
       return;
       }
       if (c == 7) {
-        history.add(""+this.row+this.col+" castles " +r+c);
+        history.add("O-O-O");
       board[r][6] = this;
       board[this.row][this.col] = null;
       board[r][5]=hold;

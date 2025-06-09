@@ -6,6 +6,8 @@ wQueen, bQueen, wKing, bKing;
 public static Pawn lastDoubleStep=null;
 static boolean kingSafe=true;
 int[] kingIsInCheck=null;
+boolean gameOver= false;
+String gameOverMessage ="";
 
 ArrayList<String> highlightSquares=new ArrayList<String>();
 void setup() {
@@ -164,6 +166,10 @@ void keyPressed() {
 
   history = new ArrayList<String>();
   turn = true;
+  hold=null;
+  highlightSquares.clear();
+  gameOver=false;
+  gameOverMessage="";
 }
 if (key == 'p' || key == 'P') {
       loadImgs();
@@ -201,6 +207,10 @@ if (key == 'p' || key == 'P') {
 
   history = new ArrayList<String>();
   turn = true;
+  hold=null;
+  highlightSquares.clear();
+  gameOver=false;
+  gameOverMessage="";
 }
 
 if (key == 's' || key == 'S') {
@@ -212,8 +222,12 @@ if (key == 's' || key == 'S') {
   board[1][5] = new Queen(1,5,true);
   board[4][2] = new King (4,2,true);
 
-  history = new ArrayList<String>();
+    history = new ArrayList<String>();
   turn = true;
+  hold=null;
+  highlightSquares.clear();
+  gameOver=false;
+  gameOverMessage="";
 }
 
 if (key == 'x' || key == 'X') {
@@ -225,13 +239,16 @@ if (key == 'x' || key == 'X') {
   board[1][7] = new Pawn(1,7,false);
   
   board[6][1] = new Bishop(6,1,true);
-  board[7][5] = new Rook(7,6,true);
+  board[7][5] = new Queen(7,5,true);
   board[7][7] = new King(7,7,true);
 
 
-
-  history = new ArrayList<String>();
+    history = new ArrayList<String>();
   turn = true;
+  hold=null;
+  highlightSquares.clear();
+  gameOver=true;
+  gameOverMessage="";
 }
 }
 
@@ -239,6 +256,19 @@ void display() {
   grid(); 
   }
   
+  
+void checkEndGame(){
+  boolean current = !true;
+  
+  if(checkmate(current)){
+    gameOver=true;
+    gameOverMessage = (current ? "White" : "Black") + " is checkmated. " + (current ?"Black":"White") +" wins!";
+  }
+  else if(stalemate(current)){
+    gameOver=true;
+    gameOverMessage="Stalemate! It's a draw.";
+  }
+}
 chessPiece hold = null;
 void mousePressed() {
   int row = mouseY / 125;
@@ -259,9 +289,27 @@ void mousePressed() {
     
     if (hold instanceof King && board[row][col] instanceof Rook) {
       if (hold.white == board[row][col].white) {
-        hold.move(board,row,col);
+        int r = hold.row;
+        int rookCol=board[row][col].col;
+        int kingTarget = (rookCol==0)?2:6;
+        int rookTarget = (rookCol==0)?3:5;
+        
+        board[r][kingTarget]=hold;
+        board[r][4]=null;
+        hold.col =kingTarget;
+        
+        board[r][rookTarget]=board[row][col];
+        board[row][col]=null;
+        board[r][rookTarget].col=rookTarget;
+        
+        ((King)hold).hasMoved=true;
+        ((Rook)board[r][rookTarget]).hasMoved=true;
+        
+        moveLog(hold,r,4,r,kingTarget,false,false,kingTarget==6,kingTarget==2);
         turn=!turn;
         hold=null;
+        highlightSquares.clear();
+        checkEndGame();
         return;
       }
     }
@@ -277,6 +325,7 @@ void mousePressed() {
         lastDoubleStep=null;
       }
       turn = !turn;
+      checkEndGame();
     }
     hold = null;
     highlightSquares = new ArrayList<String>();
@@ -313,7 +362,6 @@ void draw() {
   textSize(18);
   text("c/C - castling",25,1030);
   text("p/P - pawn promotion",25,1050);
-<<<<<<< HEAD
   kingIsInCheck=null;
   if(check(!turn)){
     for(int i = 0;i<8;i++){
@@ -325,10 +373,15 @@ void draw() {
       }
     }
   }
-=======
+  
   text("s/S - stalemate",250,1030);
   text("x/X - checkmate",250,1050);
->>>>>>> 91bda5c40756b5654689ef53adafb5267aaf9b22
+  if(gameOver){
+    fill(0);
+    textSize(32);
+    textAlign(CENTER,CENTER);
+    text(gameOverMessage,width/2,height-40);
+  }
 }
 
 void highlightCheck(){
@@ -346,6 +399,7 @@ boolean check(boolean turn) {
       if (hold instanceof King && hold.white == turn) {
         row = y;
         col = z;
+        break;
       }
     }
   }
@@ -353,6 +407,7 @@ boolean check(boolean turn) {
     println("king not found");
     return false;
   }
+  
   for (int y = 0; y < 8; y++) {
     for (int z = 0; z < 8; z++) {
       if (board[y][z] != null && board[y][z].white != turn) {
@@ -378,14 +433,35 @@ boolean checkmate (boolean chessColor){
       chessPiece piece = board[i][j];
       if(piece!=null&& piece.white==chessColor){
         ArrayList<String> moves = piece.allowedMoves(board);
-        if (moves.size()>0){
-          return false;
+        for (String move: moves){
+          int r =Integer.parseInt(move.substring(0,1));
+          int c =Integer.parseInt(move.substring(1,2));
+          
+          chessPiece capture = board[r][c];
+          int oldR = piece.row;
+          int oldC = piece.col;
+          board[r][c]=piece;
+          board[oldR][oldC] = null;
+          piece.row=r;
+          piece.col=c;
+          
+          boolean kingInCheck = check(chessColor);
+          
+          board[oldR][oldC] = piece;
+          board[r][c]=capture;
+          piece.row=oldR;
+          piece.col=oldC;
+          
+          if(!kingInCheck){
+            return false;
+          }
         }
       }
     }
   }
   return true;
 }
+
 String col(int col){
   return ""+(char)('a'+col);
 }
@@ -424,8 +500,19 @@ void historyLog(){
   for(int i = start;i<history.size();i++){
     int number = i/2+1;
     String initial = history.get(i);
-    String display = (i%2==0 ? number + ". " : "") + initial;
+    String base = initial.replace("+","").replace("#", "");
+    boolean isCheck=initial.contains("+");
+    boolean isCheckmate=initial.contains("#");
+    
+    String display = (i%2==0 ? number + ". " : "") + base;
+    
+    fill(0);
     text(display,1020,60+(i-start)*28);
+    
+    if(isCheck||isCheckmate){
+      fill(255,0,0);
+      text(isCheck?"+":"#",1020+textWidth(display),60+(i-start)*28);
+    }
   }
 }
 
@@ -439,13 +526,15 @@ else if (castleQueen){
 }
 else{
   String piece = pieceLetter(p);
-  if (piece.equals("")){
-    if(capture){
-      if (p instanceof Pawn && ((Pawn)p).ep) {
-        move += col(initialC)+ "x" + col(toC) + row(toR) +" e.p.";
-      }
-      else {
-      move += col(initialC)+ "x";
+  if (piece.equals("K")&& !capture){
+      return;
+  }
+      if(piece.equals("")){
+        if (capture){
+          if (p instanceof Pawn && ((Pawn)p).ep) {
+            move += col(initialC)+ "x" + col(toC) + row(toR) +" e.p.";
+        }
+        else {
       move += col(toC)+row(toR);
       }
     }else{
@@ -465,8 +554,28 @@ if (p instanceof Pawn) {
   move+=" e.p.";
   }
 }*/
+chessPiece captured = board[toR][toC];
+int originalR = p.row;
+int originalC=p.col;
+board[toR][toC]=p;
+board[originalR][originalC]=null;
+p.row=toR;
+p.col=toC;
+boolean isCheckmate=checkmate(!p.white);
+boolean isCheck = !isCheckmate && check(!p.white);
+board[originalR][originalC]=p;
+board[toR][toC]=captured;
+p.row=originalR;
+p.col=originalC;
+
+if(isCheckmate){
+  move+="#";
+}else if(isCheck){
+  move+="+";
+}
+
 if (!p.white)move = "... " + move;
-history.add(move);
+if (!move.equals(""))history.add(move);
 }
 
 
@@ -479,8 +588,28 @@ boolean stalemate (boolean chessColor){
       chessPiece piece = board[i][j];
       if(piece!=null&& piece.white==chessColor){
         ArrayList<String> moves = piece.allowedMoves(board);
-        if (moves.size()>0){
-          return false;
+        for (String move: moves){
+          int r =Integer.parseInt(move.substring(0,1));
+          int c =Integer.parseInt(move.substring(1,2));
+          
+          chessPiece capture = board[r][c];
+          int oldR = piece.row;
+          int oldC = piece.col;
+          board[r][c]=piece;
+          board[oldR][oldC] = null;
+          piece.row=r;
+          piece.col=c;
+          
+          boolean kingInCheck = check(chessColor);
+          
+          board[oldR][oldC] = piece;
+          board[r][c]=capture;
+          piece.row=oldR;
+          piece.col=oldC;
+          
+          if(!kingInCheck){
+            return false;
+          }
         }
       }
     }
